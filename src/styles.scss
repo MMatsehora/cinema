@@ -1,0 +1,86 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~normalize.css";
+@import "./assets/scss/fonts";
+@import "~swiper/swiper-bundle.min.css";
+
+html,
+body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+}
+
+body {
+  font-family: "Formular-Regular", sans-serif;
+  font-size: 14px;
+  overflow-x: hidden;
+  color: rgba(255, 255, 255, 1);
+  background: rgba(0, 0, 0, 1);
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+
+//Main
+.main {
+  padding: 92px 0 0;
+  height: 100%;
+
+  &_height {
+    height: auto;
+  }
+
+  &__container {
+    max-width: 1200px;
+  }
+
+  &__row {
+    display: flex;
+    column-gap: 20px;
+    padding: 30px 0;
+  }
+
+  &__col {
+    width: 100%;
+    flex-grow: 1;
+  }
+}
+
+//title
+.title {
+  font-family: 'Formular-Bold', sans-serif;
+
+  &_h1 {
+    font-size: 36px;
+    text-transform: uppercase;
+  }
+
+  &_h2 {
+    font-size: 24px;
+    margin: 0 0 10px;
+  }
+}
+
+//Swiper Carousel
+.swiper-button-next,
+.swiper-button-prev {
+  width: 60px;
+  height: 60px;
+  background: rgba(0, 0, 0, 1);
+  border-radius: 50px;
+  color: rgba(255, 255, 255, 0.4);
+
+  &:after {
+    font-size: 30px;
+  }
+
+  &:hover {
+    color: rgba(255, 255, 255, 1);
+  }
+}

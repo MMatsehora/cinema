@@ -1,0 +1,37 @@
+// Mixins.
+@mixin container {
+  position: relative;
+  width: 100%;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+
+@mixin media-desktop-size {
+  @media screen and (max-width: 1920px - 0.1px) {
+    @content;
+  }
+}
+
+@mixin media-laptop-size {
+  @media screen and (max-width: 1366px - 0.1px) {
+    @content;
+  }
+}
+
+@mixin media-tablet-size {
+  @media screen and (max-width: 920px - 0.1px) {
+    @content;
+  }
+}
+
+@mixin media-mobile-size {
+  @media screen and (max-width: 480px - 0.1px) {
+    @content;
+  }
+}
+
+@mixin media-landscape-size {
+  @media screen and (orientation: landscape) and (max-height: 420px) and (min-aspect-ratio: 13/9) {
+    @content;
+  }
+}

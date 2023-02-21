@@ -1,0 +1,17 @@
+.footer {
+  background: rgba(19, 19, 19, 1);
+  color: rgba(75, 75, 75, 1);
+
+  &__container {
+    max-width: 1200px;
+  }
+
+  &__top {
+    padding: 17px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  }
+
+  &__bottom {
+    padding: 17px 0;
+  }
+}

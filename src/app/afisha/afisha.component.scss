@@ -1,0 +1,40 @@
+.afisha__row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(126px, 1fr));
+  gap: 30px 12px;
+}
+
+.movie {
+  &__link {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+
+    &:hover .movie__img {
+      border-color: rgba(252, 40, 54, 1);
+    }
+  }
+
+  &__picture {
+    margin: 0 0 10px;
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 6px solid rgba(75, 75, 75, 1);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    text-align: center;
+    color: rgba(240, 240, 240, 1);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
