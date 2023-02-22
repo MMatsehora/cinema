@@ -6,6 +6,7 @@ import { GeneralLayoutComponent } from "./templates/general-layout/general-layou
 import {AfishaComponent} from "./afisha/afisha.component";
 import {AboutComponent} from "./about/about.component";
 import {FutureComponent} from "./future/future.component";
+import {ViewComponent} from "./view/view.component";
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
       {path: 'afisha', component: AfishaComponent},
       {path: 'about', component: AboutComponent},
       {path: 'future', component: FutureComponent},
+      {path: 'view', component: ViewComponent}
     ]
   }
 ];

@@ -14,6 +14,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AsideComponent } from './aside/aside.component';
 import { AboutComponent } from './about/about.component';
 import { FutureComponent } from './future/future.component';
+import { ViewComponent } from './view/view.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FutureComponent } from './future/future.component';
     FooterComponent,
     AsideComponent,
     AboutComponent,
-    FutureComponent
+    FutureComponent,
+    ViewComponent
   ],
   imports: [BrowserModule, AppRoutingModule, SwiperModule],
   providers: [],
