@@ -16,6 +16,7 @@ import { AsideComponent } from './aside/aside.component';
 import { AboutComponent } from './about/about.component';
 import { FutureComponent } from './future/future.component';
 import { ViewComponent } from './view/view.component';
+import { MovieComponent } from './movie/movie.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ViewComponent } from './view/view.component';
     AsideComponent,
     AboutComponent,
     FutureComponent,
-    ViewComponent
+    ViewComponent,
+    MovieComponent
   ],
   imports: [BrowserModule, AppRoutingModule, SwiperModule, HttpClientModule],
   providers: [],

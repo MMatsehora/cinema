@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieService } from "../services/movie.service";
 
 @Component({
   selector: 'app-future',
@@ -6,10 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./future.component.scss']
 })
 export class FutureComponent implements OnInit {
+  movies!: any;
+  isVisibleDate: boolean = true;
 
-  constructor() { }
+  constructor(private movieService : MovieService) { }
 
   ngOnInit(): void {
+    this.getUpcomingMovies();
   }
 
+  getUpcomingMovies() {
+    this.movieService.getUpcomingMovies().subscribe(res => {
+      this.movies = this.movieService.getModifyMovies(res);
+      console.log(this.movies);
+    }, error => {
+      console.log('Error while fetching upcoming movies.', error);
+    })
+  }
 }

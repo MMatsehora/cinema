@@ -1,0 +1,48 @@
+.movie {
+  &__link {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+
+    &:hover .movie__img {
+      border-color: rgba(252, 40, 54, 1);
+    }
+  }
+
+  &__wrap {
+    position: relative;
+    margin: 0 0 10px;
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 6px solid rgba(75, 75, 75, 1);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  &__date {
+    display: block;
+    width: calc(100% - 12px);
+    padding: 7px 0;
+    position: absolute;
+    left: 50%;
+    bottom: 6px;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.85);
+  }
+
+  &__title {
+    text-transform: uppercase;
+    text-align: center;
+    color: rgba(240, 240, 240, 1);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 export interface Movie {
-  dates: Date;
+  dates: {};
   page: number;
   results?: [] | null;
   total_pages: number;

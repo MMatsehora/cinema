@@ -1,12 +1,5 @@
 <div class="afisha">
   <div class="afisha__row">
-    <div class="movie" *ngFor="let movie of popularMovies?.results">
-      <a class="movie__link" [routerLink]="['/view']">
-        <picture class="movie__picture">
-          <img class="movie__img" src="{{movie.poster_path}}"/>
-        </picture>
-        <span class="movie__title">{{movie.title}}</span>
-      </a>
-    </div>
+    <app-movie [isVisibleDate]="isVisibleDate" [movie]="movie" *ngFor="let movie of movies?.results"></app-movie>
   </div>
 </div>

@@ -1,1 +1,5 @@
-<p>future works!</p>
+<div class="future">
+  <div class="future__row">
+    <app-movie [isVisibleDate]="isVisibleDate" [movie]="movie" *ngFor="let movie of movies?.results"></app-movie>
+  </div>
+</div>

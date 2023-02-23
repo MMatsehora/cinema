@@ -1,0 +1,5 @@
+.future__row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(126px, 1fr));
+  gap: 30px 12px;
+}
