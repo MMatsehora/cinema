@@ -99,8 +99,6 @@
               "src/assets"
             ],
             "styles": [
-              "../node_modules/normalize.css/normalize.css",
-              "../node_modules/swiper/swiper-bundle.css",
               "src/styles.scss"
             ],
             "scripts": []

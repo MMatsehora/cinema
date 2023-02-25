@@ -21,7 +21,7 @@ const routes: Routes = [
       {path: 'afisha', component: AfishaComponent},
       {path: 'about', component: AboutComponent},
       {path: 'future', component: FutureComponent},
-      {path: 'view', component: ViewComponent}
+      {path: 'view/:id', component: ViewComponent}
     ]
   }
 ];

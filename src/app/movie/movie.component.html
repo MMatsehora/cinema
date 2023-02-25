@@ -1,8 +1,8 @@
 <div class="movie">
-  <a class="movie__link" [routerLink]="['/view']">
+  <a class="movie__link" [routerLink]="['/view', movie.id]">
     <span class="movie__wrap">
       <picture class="movie__picture">
-        <img class="movie__img" src="{{movie.poster_path}}"/>
+        <img class="movie__img" src="{{movie.poster_path}}" width="206" height="303"/>
       </picture>
       <span class="movie__date" *ngIf="isVisibleDate">{{'з ' + movie.release_date}}</span>
     </span>
