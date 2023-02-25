@@ -28,6 +28,7 @@ export class MovieService {
     if (movies.results) {
       movies.results.forEach((element: ResultsMovie) => {
         element.poster_path = 'https://image.tmdb.org/t/p/original' + element.poster_path + '?api_key=' + environment.api_key;
+        element.backdrop_path = 'https://image.tmdb.org/t/p/original' + element.backdrop_path + '?api_key=' + environment.api_key;
       })
     }
     return movies;

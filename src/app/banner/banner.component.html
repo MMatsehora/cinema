@@ -1,13 +1,13 @@
 <div class="banner">
   <swiper [config]="config" class="banner__swiper">
-    <ng-template swiperSlide *ngFor="let item of sliderInfo" class="banner__item">
-      <a class="banner__film" href="#">
-        <img class="banner__film-img" [src]="item.src" [alt]="item.alt" />
+    <ng-template swiperSlide *ngFor="let movie of movies?.results" class="banner__item">
+      <a class="banner__film" [routerLink]="['/view', movie.id]">
+        <img class="banner__film-img" src="{{movie?.backdrop_path}}" alt="" />
       </a>
       <div class="banner__info">
         <div class="banner__container container">
-          <h1 class="title title_h1">{{item.title}}</h1>
-          <button class="banner__btn">{{item.button}}</button>
+          <h1 class="title title_h1">{{movie?.title}}</h1>
+          <button class="banner__btn">Детальніше</button>
         </div>
       </div>
     </ng-template>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Swiper, {SwiperOptions, Autoplay, Navigation} from "swiper";
+import { MovieService } from "../services/movie.service";
 
 @Component({
   selector: 'app-banner',
@@ -8,31 +9,16 @@ import Swiper, {SwiperOptions, Autoplay, Navigation} from "swiper";
 })
 
 export class BannerComponent implements OnInit {
+  movies !: any;
 
-  constructor() { }
+  constructor(private movieService : MovieService) { }
 
   ngOnInit(): void {
     Swiper.use([Autoplay, Navigation]);
+
+    this.getPopularMovies();
   }
 
-  sliderInfo: Array<any> = [
-    {
-      src: '/assets/images/banner/film-avatar.jpg',
-      alt: 'Image 1',
-      title: 'Аватар: Шлях води',
-      button: 'Детальніше'
-    }, {
-      src: '/assets/images/banner/film-vavilon.jpg',
-      alt: 'Image 2',
-      title: 'Вавилон',
-      button: 'Детальніше'
-    }, {
-      src: '/assets/images/banner/film-maik.jpg',
-      alt: 'Image 3',
-      title: 'СУПЕР МАЙК: ОСТАННІЙ ТАНЕЦЬ',
-      button: 'Детальніше'
-    }
-  ]
   config: SwiperOptions = {
     loop: true,
     speed: 1500,
@@ -45,4 +31,12 @@ export class BannerComponent implements OnInit {
     navigation: true,
     spaceBetween: 0
   };
+
+  getPopularMovies() {
+    this.movieService.getPopularMovies().subscribe(res => {
+      this.movies = this.movieService.getModifyMovies(res);
+    }, error => {
+      console.log('Error while fetching popular movies.', error);
+    })
+  }
 }
