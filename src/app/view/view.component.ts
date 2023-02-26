@@ -10,6 +10,7 @@ import { MovieService } from "../services/movie.service";
 export class ViewComponent implements OnInit {
   id !: string;
   movie !: any;
+  movieUrl !: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,7 +27,9 @@ export class ViewComponent implements OnInit {
   getViewMovie(id: string) {
     this.movieService.getViewMovie(id).subscribe(res => {
       this.movie = this.movieService.getModifyMovie(res);
-      console.log(this.movie);
+      if (this.movie.video) {
+        this.movieUrl = 'https://www.youtube.com/embed/' + this.movie.video;
+      }
     }, error => {
       console.log('Error while fetching popular movies.', error);
     })

@@ -39,8 +39,10 @@
     </div>
   </div>
   <div class="view__description">{{movie?.overview}}</div>
-  <h2 class="title title_h2 title__view">Трейлер</h2>
-  <div class="view__video">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/Dfx6jnx96s8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen"></iframe>
+  <div class="view__wrap" *ngIf="movieUrl">
+    <h2 class="title title_h2 title__view">Трейлер</h2>
+    <div class="view__video">
+      <iframe width="560" height="315" [src]="movieUrl | safe: 'resourceUrl'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen"></iframe>
+    </div>
   </div>
 </div>
