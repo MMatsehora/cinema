@@ -9,7 +9,7 @@ import {Movie, ResultsMovie, ViewMovie} from '../Model/movie';
 })
 export class MovieService {
   public url: string = 'https://api.themoviedb.org/3/';
-  public language: string = 'uk-UA'
+  public language: string = 'en-US'
   constructor(private http: HttpClient) {}
 
   getPopularMovies() : Observable<Movie> {
@@ -17,7 +17,7 @@ export class MovieService {
   }
 
   getUpcomingMovies() : Observable<Movie> {
-    return this.http.get<Movie>(this.url + 'discover/movie?api_key=' + environment.api_key + '&language=' + this.language + '&primary_release_date.gte=2023-03-06&primary_release_date.lte=2023-12-31')
+    return this.http.get<Movie>(this.url + 'discover/movie?api_key=' + environment.api_key + '&language=' + this.language + '&primary_release_date.gte=2023-03-06&primary_release_date.lte=2023-06-31')
   }
 
   getViewMovie(id: string) : Observable<ViewMovie> {
@@ -42,5 +42,9 @@ export class MovieService {
       })
     }
     return movie;
+  }
+
+  separateByComma(str: string) {
+    return str.replace(/([a-z])([A-Z])/g, '$1, $2');
   }
 }

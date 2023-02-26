@@ -29,6 +29,8 @@
 }
 
 .view__info {
+  position: sticky;
+  top: 92px;
   padding: 20px;
   background: rgba(10, 10, 10, 0.8);
   border-radius: 10px;
@@ -41,7 +43,7 @@
 
   &-col {
     &:first-child {
-      width: 30%;
+      min-width: 100px;
       color: rgba(73, 79, 93, 1);
     }
     &:last-child {

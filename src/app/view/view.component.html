@@ -10,23 +10,19 @@
     <div class="view__info">
       <div class="view__info-row">
         <div class="view__info-col">Рік:</div>
-        <div class="view__info-col">{{movie?.release_date}}</div>
+        <div class="view__info-col">{{(movie?.release_date) | date:'yyyy'}}</div>
       </div>
       <div class="view__info-row">
         <div class="view__info-col">Країна:</div>
-        <div class="view__info-col">США</div>
+        <div class="view__info-col">{{separatedCountries}}</div>
       </div>
       <div class="view__info-row">
         <div class="view__info-col">Жанр:</div>
-        <div class="view__info-col"><span *ngFor="let genre of movie?.genres">{{genre.name}}</span></div>
+        <div class="view__info-col">{{separatedGenres | lowercase}}</div>
       </div>
-      <div class="view__info-row">
+      <div class="view__info-row" *ngIf="movie?.runtime">
         <div class="view__info-col">Тривалість:</div>
         <div class="view__info-col">{{movie?.runtime}}</div>
-      </div>
-      <div class="view__info-row">
-        <div class="view__info-col">В ролях:</div>
-        <div class="view__info-col">Чаннінґ Татум, Сальма Гаєк</div>
       </div>
       <div class="view__info-row">
         <div class="view__info-col">Режисер:</div>
@@ -34,7 +30,7 @@
       </div>
       <div class="view__info-row">
         <div class="view__info-col">Прокат:</div>
-        <div class="view__info-col">з 09.02.2023</div>
+        <div class="view__info-col">{{(movie?.release_date) | date:'dd.MM.yyyy'}}</div>
       </div>
     </div>
   </div>

@@ -11,6 +11,10 @@ export class ViewComponent implements OnInit {
   id !: string;
   movie !: any;
   movieUrl !: any;
+  genres: string = '';
+  countries: string = '';
+  separatedGenres: string = '';
+  separatedCountries: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -27,9 +31,20 @@ export class ViewComponent implements OnInit {
   getViewMovie(id: string) {
     this.movieService.getViewMovie(id).subscribe(res => {
       this.movie = this.movieService.getModifyMovie(res);
-      if (this.movie.video) {
-        this.movieUrl = 'https://www.youtube.com/embed/' + this.movie.video;
-      }
+      this.movie.video ? this.movieUrl = 'https://www.youtube.com/embed/' + this.movie.video : false;
+
+      this.movie.genres.forEach((item : {name : string}) => {
+        this.genres += item.name;
+      });
+
+      this.movie.production_countries.forEach((item : {name : string}) => {
+        this.countries += item.name;
+      })
+
+      this.separatedGenres = this.movieService.separateByComma(this.genres);
+      this.separatedCountries = this.movieService.separateByComma(this.countries);
+
+      console.log(this.movie);
     }, error => {
       console.log('Error while fetching popular movies.', error);
     })
