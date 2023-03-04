@@ -1,0 +1,21 @@
+.tabs {
+  margin: 0 0 20px;
+  display: flex;
+
+  &__item {
+    margin: 0 15px 0 0;
+    padding: 7px 16px;
+    color: rgba(240, 240, 240, 1);
+    text-decoration: none;
+    border-radius: 15px;
+
+    &:hover {
+      color: rgba(202, 202, 202, 1);
+      text-decoration: underline;
+    }
+
+    &.active {
+      background: rgba(40, 41, 43, 1);
+    }
+  }
+}

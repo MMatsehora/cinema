@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import Swiper, {SwiperOptions, Autoplay, Navigation} from "swiper";
 import { MovieService } from "../services/movie.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-banner',
@@ -11,7 +12,9 @@ import { MovieService } from "../services/movie.service";
 export class BannerComponent implements OnInit {
   movies !: any;
 
-  constructor(private movieService : MovieService) { }
+  constructor(
+    private movieService : MovieService,
+    private router: Router) { }
 
   ngOnInit(): void {
     Swiper.use([Autoplay, Navigation]);
@@ -28,15 +31,19 @@ export class BannerComponent implements OnInit {
       delay: 5000,
       disableOnInteraction: false,
     },
-    navigation: true,
-    spaceBetween: 0
+    navigation: true
   };
 
   getPopularMovies() {
     this.movieService.getPopularMovies().subscribe(res => {
       this.movies = this.movieService.getModifyMovies(res);
+      console.log(this.movies);
     }, error => {
       console.log('Error while fetching popular movies.', error);
     })
+  }
+
+  goToViewPage(id: string) {
+    this.router.navigate(['/view', id])
   }
 }

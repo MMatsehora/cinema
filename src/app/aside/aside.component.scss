@@ -1,5 +1,9 @@
+:host {
+  max-width: 260px;
+  flex-shrink: 0;
+}
+
 .aside {
-  min-width: 260px;
   position: sticky;
   top: 122px;
 

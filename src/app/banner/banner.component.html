@@ -7,7 +7,7 @@
       <div class="banner__info">
         <div class="banner__container container">
           <h1 class="title title_h1">{{movie?.title}}</h1>
-          <button class="banner__btn">Детальніше</button>
+          <button class="banner__btn" (click)="goToViewPage(movie.id)">Детальніше</button>
         </div>
       </div>
     </ng-template>

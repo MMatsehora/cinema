@@ -4,7 +4,7 @@
       <picture class="movie__picture">
         <img class="movie__img" src="{{movie.poster_path}}" width="206" height="303"/>
       </picture>
-      <span class="movie__date" *ngIf="isVisibleDate">{{'з ' + movie.release_date}}</span>
+      <span class="movie__date" *ngIf="isVisibleDate">{{movie.release_date}}</span>
     </span>
     <span class="movie__title">{{movie.title}}</span>
   </a>

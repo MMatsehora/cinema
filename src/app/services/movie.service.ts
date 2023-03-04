@@ -13,11 +13,11 @@ export class MovieService {
   constructor(private http: HttpClient) {}
 
   getPopularMovies() : Observable<Movie> {
-    return this.http.get<Movie>(this.url + 'movie/popular?api_key=' + environment.api_key + '&language=' + this.language + '&append_to_response=videos')
+    return this.http.get<Movie>(this.url + 'discover/movie?api_key=' + environment.api_key + '&language=' + this.language + '&sort_by=primary_release_date.asc&region=UA&primary_release_date.gte=2023-01-01')
   }
 
   getUpcomingMovies() : Observable<Movie> {
-    return this.http.get<Movie>(this.url + 'discover/movie?api_key=' + environment.api_key + '&language=' + this.language + '&primary_release_date.gte=2023-03-06&primary_release_date.lte=2023-06-31')
+    return this.http.get<Movie>(this.url + 'discover/movie?api_key=' + environment.api_key + '&language=' + this.language + '&sort_by=primary_release_date.asc&region=UA&primary_release_date.gte=2023-03-10')
   }
 
   getViewMovie(id: string) : Observable<ViewMovie> {
