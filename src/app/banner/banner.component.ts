@@ -27,11 +27,20 @@ export class BannerComponent implements OnInit {
     speed: 1500,
     centeredSlides: true,
     allowTouchMove: false,
+    slidesPerView: "auto",
     autoplay: {
       delay: 5000,
       disableOnInteraction: false,
     },
-    navigation: true
+    navigation: true,
+    breakpoints: {
+      920: {
+        allowTouchMove: false
+      },
+      320: {
+        allowTouchMove: true
+      }
+    }
   };
 
   getPopularMovies() {

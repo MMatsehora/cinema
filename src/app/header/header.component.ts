@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
+  isClassVisible: boolean = false;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  toggleClass() {
+    this.isClassVisible = !this.isClassVisible;
   }
 
+  hideClass() {
+    this.isClassVisible = false;
+  }
 }

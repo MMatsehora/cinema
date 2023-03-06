@@ -1,5 +1,3 @@
 <div class="afisha">
-  <div class="afisha__row">
-    <app-movie [isVisibleDate]="isVisibleDate" [movie]="movie" *ngFor="let movie of movies?.results"></app-movie>
-  </div>
+  <app-movie [movie]="movie" *ngFor="let movie of movies?.results"></app-movie>
 </div>

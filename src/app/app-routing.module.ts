@@ -28,7 +28,6 @@ const routes: Routes = [
       {path: 'view/:id', component: ViewComponent}
     ]
   },
-  { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }
 ];
 

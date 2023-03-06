@@ -8,7 +8,6 @@ import { MovieService } from "../services/movie.service";
 })
 export class AfishaComponent implements OnInit {
   movies !: any;
-  isVisibleDate: boolean = false;
 
   constructor(private movieService : MovieService) { }
 

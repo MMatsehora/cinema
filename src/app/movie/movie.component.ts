@@ -7,7 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class MovieComponent implements OnInit {
   @Input() movie!: any;
-  @Input() isVisibleDate!: boolean
+  @Input() isVisibleDate: boolean = false;
 
   constructor() { }
 

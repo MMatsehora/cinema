@@ -4,34 +4,21 @@
   width: 100%;
   padding: 0 30px;
   margin: 0 auto;
-}
-
-@mixin media-desktop-size {
-  @media screen and (max-width: 1920px - 0.1px) {
-    @content;
+  @include media-breakpoint(sm) {
+    padding: 0 15px;
   }
 }
 
-@mixin media-laptop-size {
-  @media screen and (max-width: 1366px - 0.1px) {
-    @content;
-  }
-}
-
-@mixin media-tablet-size {
-  @media screen and (max-width: 920px - 0.1px) {
-    @content;
-  }
-}
-
-@mixin media-mobile-size {
-  @media screen and (max-width: 480px - 0.1px) {
-    @content;
-  }
-}
-
-@mixin media-landscape-size {
-  @media screen and (orientation: landscape) and (max-height: 420px) and (min-aspect-ratio: 13/9) {
-    @content;
+@mixin media-breakpoint($size) {
+  @if $size == sm {
+    @media (max-width: 568px - 0.1px) { @content; }
+  } @else if $size == md {
+    @media (max-width: 768px - 0.1px) { @content; }
+  } @else if $size == lg {
+    @media (max-width: 992px - 0.1px) { @content; }
+  } @else if $size == xl {
+    @media (max-width: 1200px - 0.1px) { @content; }
+  } @else if $size == xxl {
+    @media (max-width: 1440px - 0.1px) { @content; }
   }
 }

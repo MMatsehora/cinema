@@ -1,9 +1,12 @@
+@import "../../assets/scss/mixins";
+
 .footer {
   background: rgba(19, 19, 19, 1);
   color: rgba(75, 75, 75, 1);
 
   &__container {
     max-width: 1200px;
+    @include container;
   }
 
   &__top {

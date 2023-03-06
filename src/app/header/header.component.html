@@ -1,14 +1,34 @@
 <header class="header">
-  <div class="container header__container">
+  <div class="header__container">
     <a class="header__logo" [routerLink]="['/']">
       <img class="header__logo-img" src="assets/images/header/logo.png"/>
     </a>
-    <nav class="navbar">
+    <nav class="navbar" (click)="hideClass()" [ngClass]="{'active': isClassVisible}">
       <ul class="navbar__list">
-        <li class="navbar__item" routerLinkActive="active"><a class="navbar__link" [routerLink]="['/afisha']"><span class="navbar__title">Розклад</span><span class="navbar__text">ceансів</span></a></li>
-        <li class="navbar__item" routerLinkActive="active"><a class="navbar__link" [routerLink]="['/future']"><span class="navbar__title">Анонси</span><span class="navbar__text">фільмів</span></a></li>
-        <li class="navbar__item" routerLinkActive="active"><a class="navbar__link" [routerLink]="['/about', 'cinema']"><span class="navbar__title">О нас</span><span class="navbar__text">контакти</span></a></li>
+        <li class="navbar__item" routerLinkActive="active">
+          <a class="navbar__link" [routerLink]="['/afisha']">
+            <span class="navbar__title">showtimes</span>
+            <span class="navbar__text">movies</span>
+          </a>
+        </li>
+        <li class="navbar__item" routerLinkActive="active">
+          <a class="navbar__link" [routerLink]="['/future']">
+            <span class="navbar__title">previews</span>
+            <span class="navbar__text">movies</span>
+          </a>
+        </li>
+        <li class="navbar__item" routerLinkActive="active">
+          <a class="navbar__link" [routerLink]="['/about', 'cinema']">
+            <span class="navbar__title">about us</span>
+            <span class="navbar__text">contacts</span>
+          </a>
+        </li>
       </ul>
     </nav>
+    <button class="header__burger" (click)="toggleClass()">
+      <span class="header__burger-line"></span>
+      <span class="header__burger-line"></span>
+      <span class="header__burger-line"></span>
+    </button>
   </div>
 </header>
