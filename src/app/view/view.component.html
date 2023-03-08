@@ -5,6 +5,7 @@
   </div>
   <div class="view__row">
     <picture class="view__poster">
+      <source srcset="{{movie?.backdrop_path}}" media="(max-width: 991px)"/>
       <img class="view__poster-img" src="{{movie?.poster_path}}" width="220" height="330"/>
     </picture>
     <div class="view__info">

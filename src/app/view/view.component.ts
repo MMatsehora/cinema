@@ -23,9 +23,9 @@ export class ViewComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       this.id = params['id'];
-    })
 
-    this.getViewMovie(this.id);
+      this.getViewMovie(this.id);
+    })
   }
 
   getViewMovie(id: string) {
