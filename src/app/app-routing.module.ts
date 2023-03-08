@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeLayoutComponent } from "./templates/home-layout/home-layout.component";
-import { HomeComponent } from "./home/home.component";
+import { HomeComponent } from "./pages/home/home.component";
 import { GeneralLayoutComponent } from "./templates/general-layout/general-layout.component";
-import {AfishaComponent} from "./afisha/afisha.component";
-import {AboutComponent} from "./about/about.component";
-import {FutureComponent} from "./future/future.component";
-import {ViewComponent} from "./view/view.component";
-import {CinemaComponent} from "./cinema/cinema.component";
-import {ContactsComponent} from "./contacts/contacts.component";
-import {NotFoundComponent} from "./not-found/not-found.component";
+import {AfishaComponent} from "./pages/afisha/afisha.component";
+import {AboutComponent} from "./pages/about/about.component";
+import {FutureComponent} from "./pages/future/future.component";
+import {ViewComponent} from "./pages/view/view.component";
+import {CinemaComponent} from "./pages/about/cinema/cinema.component";
+import {ContactsComponent} from "./pages/about/contacts/contacts.component";
+import {NotFoundComponent} from "./pages/not-found/not-found.component";
 
 const routes: Routes = [
   {

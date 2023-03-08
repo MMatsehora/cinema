@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import Swiper, {SwiperOptions, Autoplay, Navigation} from "swiper";
-import { MovieService } from "../services/movie.service";
+import { MovieService } from "../../services/movie.service";
 import { Router } from "@angular/router";
 
 @Component({

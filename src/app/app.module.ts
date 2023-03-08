@@ -5,23 +5,23 @@ import { SafePipeModule } from 'safe-pipe';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { BannerComponent } from './banner/banner.component';
+import { HeaderComponent } from './components/header/header.component';
+import { BannerComponent } from './components/banner/banner.component';
 import { SwiperModule } from "swiper/angular";
 import { LightgalleryModule } from "lightgallery/angular";
 import { HomeLayoutComponent } from './templates/home-layout/home-layout.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './pages/home/home.component';
 import { GeneralLayoutComponent } from './templates/general-layout/general-layout.component';
-import { AfishaComponent } from './afisha/afisha.component';
-import { FooterComponent } from './footer/footer.component';
-import { AsideComponent } from './aside/aside.component';
-import { AboutComponent } from './about/about.component';
-import { FutureComponent } from './future/future.component';
-import { ViewComponent } from './view/view.component';
-import { MovieComponent } from './movie/movie.component';
-import { ContactsComponent } from './contacts/contacts.component';
-import { CinemaComponent } from './cinema/cinema.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { AfishaComponent } from './pages/afisha/afisha.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { AsideComponent } from './components/aside/aside.component';
+import { AboutComponent } from './pages/about/about.component';
+import { FutureComponent } from './pages/future/future.component';
+import { ViewComponent } from './pages/view/view.component';
+import { MovieComponent } from './components/movie/movie.component';
+import { ContactsComponent } from './pages/about/contacts/contacts.component';
+import { CinemaComponent } from './pages/about/cinema/cinema.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
