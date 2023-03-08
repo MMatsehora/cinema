@@ -10,7 +10,7 @@
       <div class="banner__info">
         <div class="banner__container">
           <h1 class="title title_h1 banner__title">{{movie?.title}}</h1>
-          <button class="btn banner__btn" (click)="goToViewPage(movie.id)">More details</button>
+          <app-button (onClicked)="goToViewPage(movie.id)" [elemClass]="'banner__btn'" [textBtn]="textBtn"></app-button>
         </div>
       </div>
     </ng-template>

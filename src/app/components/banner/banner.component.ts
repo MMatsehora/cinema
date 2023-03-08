@@ -10,7 +10,8 @@ import { Router } from "@angular/router";
 })
 
 export class BannerComponent implements OnInit {
-  movies !: any;
+  public movies !: any;
+  public textBtn: string = 'More detail'
 
   constructor(
     private movieService : MovieService,

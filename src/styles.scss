@@ -102,18 +102,3 @@ body {
     color: rgba(255, 255, 255, 1);
   }
 }
-
-.btn {
-  background-color: rgba(252, 40, 54, 1);
-  border-radius: 4px;
-  padding: 12px 36px;
-  color: rgba(255, 255, 255, 1);
-
-  @include media-breakpoint(sm) {
-    padding: 10px 26px;
-  }
-
-  &:hover {
-    background-color: rgba(248, 3, 20, 1);
-  }
-}

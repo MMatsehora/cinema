@@ -1,5 +1,5 @@
 <div class="not-found">
   <h1 class="title not-found__title">404</h1>
   <p class="not-found__text">Page not found</p>
-  <button class="btn not-found__btn" [routerLink]="['/']">Go to the home</button>
+  <app-button (onClicked)="goToHomePage()" [elemClass]="'not-found__btn'" [textBtn]="textBtn"></app-button>
 </div>
