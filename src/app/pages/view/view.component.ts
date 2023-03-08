@@ -13,8 +13,10 @@ export class ViewComponent implements OnInit {
   movieUrl !: any;
   genres: string = '';
   countries: string = '';
+  actors: string = '';
   separatedGenres: string = '';
   separatedCountries: string = '';
+  separatedActors: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -25,6 +27,7 @@ export class ViewComponent implements OnInit {
       this.id = params['id'];
 
       this.getViewMovie(this.id);
+      this.getActorsMovie(this.id);
     })
   }
 
@@ -47,6 +50,18 @@ export class ViewComponent implements OnInit {
       console.log(this.movie);
     }, error => {
       console.log('Error while fetching popular movies.', error);
+    })
+  }
+
+  getActorsMovie(id: string) {
+    this.movieService.getActorsMovie(id).subscribe(res => {
+      res.cast.forEach((item : {name: string}, index: number) => {
+        if (index < 10) {
+          this.actors += item.name;
+        }
+      })
+
+      this.separatedActors = this.movieService.separateByComma(this.actors);
     })
   }
 }

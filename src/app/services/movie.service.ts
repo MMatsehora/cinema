@@ -24,6 +24,10 @@ export class MovieService {
     return this.http.get<ViewMovie>(this.url + 'movie/' + id + '?api_key=' + environment.api_key + '&language=' + this.language + '&append_to_response=videos')
   }
 
+  getActorsMovie(id: string) : Observable<any> {
+    return this.http.get<ViewMovie>(this.url + 'movie/' + id + '/credits?api_key=' + environment.api_key + '&language=' + this.language)
+  }
+
   getModifyMovies(movies : Movie) : Movie {
     if (movies.results) {
       movies.results.forEach((element: ResultsMovie) => {
