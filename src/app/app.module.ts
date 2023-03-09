@@ -23,6 +23,7 @@ import { ContactsComponent } from './pages/about/contacts/contacts.component';
 import { CinemaComponent } from './pages/about/cinema/cinema.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ButtonComponent } from './components/ui/button/button.component';
+import { LogoComponent } from './components/ui/logo/logo.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ButtonComponent } from './components/ui/button/button.component';
     ContactsComponent,
     CinemaComponent,
     NotFoundComponent,
-    ButtonComponent
+    ButtonComponent,
+    LogoComponent
   ],
   imports: [BrowserModule, SwiperModule, HttpClientModule, SafePipeModule, LightgalleryModule, AppRoutingModule],
   providers: [],

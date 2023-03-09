@@ -9,12 +9,11 @@
     @include container;
   }
 
-  &__top {
-    padding: 17px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-  }
-
   &__bottom {
-    padding: 17px 0;
+    padding: 16px 0;
+
+    @include media-breakpoint(sm) {
+      padding: 12px 0;
+    }
   }
 }

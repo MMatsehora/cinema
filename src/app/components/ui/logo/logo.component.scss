@@ -1,0 +1,26 @@
+@import "../../../../assets/scss/mixins";
+
+:host {
+  display: inline-flex;
+}
+
+.logo {
+  display: inline-flex;
+  width: 186px;
+  height: 68px;
+
+  @include media-breakpoint(sm) {
+    width: 138px;
+    height: 50px;
+  }
+
+  @include media-breakpoint-landscape(420px) {
+    width: 138px;
+    height: 50px;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
+}

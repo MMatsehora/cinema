@@ -1,8 +1,6 @@
 <header class="header">
   <div class="header__container">
-    <a class="header__logo" [routerLink]="['/']">
-      <img class="header__logo-img" src="../../../assets/images/header/logo.png"/>
-    </a>
+    <app-logo [elemClass]="'header__logo'"></app-logo>
     <nav class="navbar" (click)="hideClass()" [ngClass]="{'active': isClassVisible}">
       <ul class="navbar__list">
         <li class="navbar__item" routerLinkActive="active">
