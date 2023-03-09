@@ -14,7 +14,7 @@ import {NotFoundComponent} from "./pages/not-found/not-found.component";
 const routes: Routes = [
   {
     path: '', component: HomeLayoutComponent, children: [
-      {path: '', component: HomeComponent}
+      {path: '', component: HomeComponent, pathMatch: "full"}
     ]
   },
   {
@@ -28,7 +28,7 @@ const routes: Routes = [
       {path: 'view/:id', component: ViewComponent}
     ]
   },
-  { path: '**', component: NotFoundComponent }
+  {path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({

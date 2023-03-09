@@ -11,14 +11,21 @@
 
 @mixin media-breakpoint($size) {
   @if $size == sm {
-    @media (max-width: 568px - 0.1px) { @content; }
+    @media screen and (max-width: 568px - 0.1px) { @content; }
   } @else if $size == md {
-    @media (max-width: 768px - 0.1px) { @content; }
+    @media screen and (max-width: 768px - 0.1px) { @content; }
   } @else if $size == lg {
-    @media (max-width: 992px - 0.1px) { @content; }
+    @media screen and (max-width: 992px - 0.1px) { @content; }
   } @else if $size == xl {
-    @media (max-width: 1200px - 0.1px) { @content; }
+    @media screen and (max-width: 1200px - 0.1px) { @content; }
   } @else if $size == xxl {
-    @media (max-width: 1440px - 0.1px) { @content; }
+    @media screen and (max-width: 1440px - 0.1px) { @content; }
   }
 }
+
+@mixin media-breakpoint-landscape($maxHeight) {
+  @media only screen and (orientation: landscape) and (max-height: $maxHeight) and (min-aspect-ratio: 13/9) {
+    @content;
+  }
+}
+

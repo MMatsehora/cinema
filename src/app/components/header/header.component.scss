@@ -14,6 +14,10 @@
     padding: 8px 0;
   }
 
+  @include media-breakpoint-landscape(420px) {
+    padding: 8px 0;
+  }
+
   &__container {
     display: flex;
     justify-content: space-between;
@@ -29,6 +33,11 @@
     height: 68px;
 
     @include media-breakpoint(sm) {
+      width: 138px;
+      height: 50px;
+    }
+
+    @include media-breakpoint-landscape(420px) {
       width: 138px;
       height: 50px;
     }
@@ -84,6 +93,10 @@
   }
 
   @include media-breakpoint(sm) {
+    top: 59px;
+  }
+
+  @include media-breakpoint-landscape(420px) {
     top: 59px;
   }
 

@@ -34,6 +34,10 @@
   @include media-breakpoint(sm) {
     font-size: 16px;
   }
+
+  @include media-breakpoint-landscape(420px) {
+    font-size: 16px;
+  }
 }
 
 .view__row {

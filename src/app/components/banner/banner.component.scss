@@ -35,18 +35,29 @@
     padding: 20px 0;
     background: rgba(0, 0, 0, 0.8);
     z-index: 10;
+
     @include media-breakpoint(sm) {
+      padding: 16px 0;
+    }
+
+    @include media-breakpoint-landscape(420px) {
       padding: 16px 0;
     }
   }
 
   &__title {
     text-align: center;
+
     @include media-breakpoint(lg) {
       margin: 0 0 20px;
     }
+
     @include media-breakpoint(sm) {
       margin: 0 0 14px;
+    }
+
+    @include media-breakpoint-landscape(420px) {
+      margin: 0;
     }
   }
 
@@ -55,9 +66,15 @@
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
+
     @include container;
+
     @include media-breakpoint(lg) {
       flex-direction: column;
+    }
+
+    @include media-breakpoint-landscape(420px) {
+      flex-direction: row;
     }
   }
 

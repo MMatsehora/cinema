@@ -15,6 +15,7 @@ body {
 }
 
 body {
+  display: flex;
   font-family: "Formular-Regular", sans-serif;
   font-size: 14px;
   overflow-x: hidden;
@@ -26,8 +27,13 @@ body {
 .main {
   padding: 93px 0 0;
   height: 100%;
+  flex-grow: 1;
 
   @include media-breakpoint(sm) {
+    padding: 67px 0 0;
+  }
+
+  @include media-breakpoint-landscape(420px) {
     padding: 67px 0 0;
   }
 
@@ -68,7 +74,12 @@ body {
 
   &_h1 {
     font-size: 36px;
+
     @include media-breakpoint(sm) {
+      font-size: 24px;
+    }
+
+    @include media-breakpoint-landscape(420px) {
       font-size: 24px;
     }
   }

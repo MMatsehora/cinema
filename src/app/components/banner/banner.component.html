@@ -3,7 +3,7 @@
     <ng-template swiperSlide *ngFor="let movie of movies?.results" class="banner__item">
       <a class="banner__film" [routerLink]="['/view', movie.id]">
         <picture>
-          <source srcset="{{movie?.poster_path}}" media="(max-width: 991px)"/>
+          <source srcset="{{movie?.poster_path}}" media="(max-width: 567px)"/>
           <img class="banner__film-img" src="{{movie?.backdrop_path}}" alt="" />
         </picture>
       </a>
