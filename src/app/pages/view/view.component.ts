@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Params, Router} from "@angular/router";
+import { ActivatedRoute, Params } from "@angular/router";
 import { MovieService } from "../../services/movie.service";
+import { Cast } from "../../Model/cast";
+import { Genres } from "../../Model/genres";
+import {Countries} from "../../Model/countries";
 
 @Component({
   selector: 'app-view',
@@ -36,11 +39,11 @@ export class ViewComponent implements OnInit {
       this.movie = this.movieService.getModifyMovie(res);
       this.movie.video ? this.movieUrl = 'https://www.youtube.com/embed/' + this.movie.video : false;
 
-      this.movie.genres.forEach((item : {name : string}) => {
+      this.movie.genres.forEach((item : Genres) => {
         this.genres += item.name;
       });
 
-      this.movie.production_countries.forEach((item : {name : string}) => {
+      this.movie.production_countries.forEach((item : Countries) => {
         this.countries += item.name;
       })
 
@@ -55,7 +58,7 @@ export class ViewComponent implements OnInit {
 
   getActorsMovie(id: string) {
     this.movieService.getActorsMovie(id).subscribe(res => {
-      res.cast.forEach((item : {name: string}, index: number) => {
+      res.cast?.forEach((item : Cast, index: number) => {
         if (index < 10) {
           this.actors += item.name;
         }

@@ -2,7 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { environment } from "../../environments/environment";
-import {Movie, ResultsMovie, ViewMovie} from '../Model/movie';
+import { Movie } from '../Model/movie';
+import { ResultsMovie } from '../Model/results-movie';
+import { ViewMovie } from "../Model/view-movie";
+import { Actors } from '../Model/actors';
 
 @Injectable({
   providedIn: 'root'
@@ -24,8 +27,8 @@ export class MovieService {
     return this.http.get<ViewMovie>(this.url + 'movie/' + id + '?api_key=' + environment.api_key + '&language=' + this.language + '&append_to_response=videos')
   }
 
-  getActorsMovie(id: string) : Observable<any> {
-    return this.http.get<ViewMovie>(this.url + 'movie/' + id + '/credits?api_key=' + environment.api_key + '&language=' + this.language)
+  getActorsMovie(id: string) : Observable<Actors> {
+    return this.http.get<Actors>(this.url + 'movie/' + id + '/credits?api_key=' + environment.api_key + '&language=' + this.language)
   }
 
   getModifyMovies(movies : Movie) : Movie {
