@@ -24,6 +24,7 @@ import { CinemaComponent } from './pages/about/cinema/cinema.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ButtonComponent } from './components/ui/button/button.component';
 import { LogoComponent } from './components/ui/logo/logo.component';
+import { MenuComponent } from './components/ui/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { LogoComponent } from './components/ui/logo/logo.component';
     CinemaComponent,
     NotFoundComponent,
     ButtonComponent,
-    LogoComponent
+    LogoComponent,
+    MenuComponent
   ],
   imports: [BrowserModule, SwiperModule, HttpClientModule, SafePipeModule, LightgalleryModule, AppRoutingModule],
   providers: [],

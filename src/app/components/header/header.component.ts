@@ -12,7 +12,28 @@ export class HeaderComponent {
     this.isClassVisible = !this.isClassVisible;
   }
 
-  hideClass() {
-    this.isClassVisible = false;
-  }
+  menuList = [
+    {
+      title: "showtimes",
+      text: "movies",
+      routerLink: {
+        firstParam: "/afisha"
+      }
+    },
+    {
+      title: "previews",
+      text: "movies",
+      routerLink: {
+        firstParam: "/future"
+      }
+    },
+    {
+      title: "about us",
+      text: "contacts",
+      routerLink: {
+        firstParam: "/about",
+        secondParam: "cinema"
+      }
+    }
+  ]
 }

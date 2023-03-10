@@ -1,0 +1,13 @@
+<nav class="menu" [ngClass]="{'active': isClassVisible}">
+  <ul class="menu__list">
+    <li class="menu__item" *ngFor="let item of menuList" routerLinkActive="active">
+      <a class="menu__link"
+         [routerLink]="item.routerLink.secondParam ?
+           [item.routerLink.firstParam, item.routerLink.secondParam] :
+           [item.routerLink.firstParam]">
+        <span class="menu__title">{{item.title}}</span>
+        <span class="menu__text">{{item.text}}</span>
+      </a>
+    </li>
+  </ul>
+</nav>
