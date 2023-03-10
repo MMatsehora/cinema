@@ -1,3 +1,13 @@
+@import "src/assets/scss/mixins";
+
+.about {
+  @include row;
+
+  &__col {
+    @include col;
+  }
+}
+
 .tabs {
   margin: 0 0 20px;
   display: flex;

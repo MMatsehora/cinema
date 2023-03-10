@@ -1,3 +1,6 @@
 <div class="future">
-  <app-movie [isVisibleDate]="isVisibleDate" [movie]="movie" *ngFor="let movie of movies?.results"></app-movie>
+  <div class="future__col">
+    <app-movie [isVisibleDate]="isVisibleDate" [movie]="movie" *ngFor="let movie of movies?.results"></app-movie>
+  </div>
+  <app-aside></app-aside>
 </div>

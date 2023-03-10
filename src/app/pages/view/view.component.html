@@ -3,7 +3,7 @@
     <app-title [level]="'h1'" [elemClass]="'title_h1 title_view'" [text]="movie?.title"></app-title>
     <app-title [level]="'h2'" [elemClass]="'title_h2 title_gray'" [text]="movie?.original_title"></app-title>
   </div>
-  <div class="view__row">
+  <div class="view__wrap">
     <picture class="view__poster">
       <source srcset="{{movie?.backdrop_path}}" media="(max-width: 991px)"/>
       <img class="view__poster-img" src="{{movie?.poster_path}}" width="220" height="330"/>
@@ -21,7 +21,7 @@
         <div class="view__info-col">Genre:</div>
         <div class="view__info-col">{{separatedGenres | lowercase}}</div>
       </div>
-      <div class="view__info-row">
+      <div class="view__info-row" *ngIf="separatedActors">
         <div class="view__info-col">Actors:</div>
         <div class="view__info-col">{{separatedActors}}</div>
       </div>
@@ -36,10 +36,10 @@
     </div>
   </div>
   <div class="view__description">{{movie?.overview}}</div>
-  <div class="view__wrap" *ngIf="movieUrl">
+  <ng-container *ngIf="movieUrl">
     <app-title [level]="'h2'" [elemClass]="'title_h2'" [text]="title"></app-title>
     <div class="view__video">
       <iframe width="560" height="315" [src]="movieUrl | safe: 'resourceUrl'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen"></iframe>
     </div>
-  </div>
+  </ng-container>
 </div>

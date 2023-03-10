@@ -1,15 +1,21 @@
 @import "src/assets/scss/mixins";
 
 .future {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(126px, 1fr));
-  gap: 30px 12px;
+  @include row;
 
-  @include media-breakpoint(xl) {
-    grid-template-columns: repeat(3, minmax(126px, 1fr));
-  }
+  &__col {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(126px, 1fr));
+    gap: 30px 12px;
 
-  @include media-breakpoint(sm) {
-    grid-template-columns: repeat(2, minmax(126px, 1fr));
+    @include col;
+
+    @include media-breakpoint(xl) {
+      grid-template-columns: repeat(3, minmax(126px, 1fr));
+    }
+
+    @include media-breakpoint(sm) {
+      grid-template-columns: repeat(2, minmax(126px, 1fr));
+    }
   }
 }

@@ -50,8 +50,6 @@ export class ViewComponent implements OnInit {
 
       this.separatedGenres = this.movieService.separateByComma(this.genres);
       this.separatedCountries = this.movieService.separateByComma(this.countries);
-
-      console.log(this.movie);
     }, error => {
       console.log('Error while fetching popular movies.', error);
     })

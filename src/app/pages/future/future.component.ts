@@ -19,7 +19,6 @@ export class FutureComponent implements OnInit {
   getUpcomingMovies() {
     this.movieService.getUpcomingMovies().subscribe(res => {
       this.movies = this.movieService.getModifyMovies(res);
-      console.log(this.movies);
     }, error => {
       console.log('Error while fetching upcoming movies.', error);
     })
