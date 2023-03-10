@@ -1,7 +1,7 @@
 <div class="view">
   <div class="view__titles">
-    <h1 class="title title_h1 view__title">{{movie?.title}}</h1>
-    <p class="view__subtitle">{{movie?.original_title}}</p>
+    <app-title [level]="'h1'" [elemClass]="'title_h1 title_view'" [text]="movie?.title"></app-title>
+    <app-title [level]="'h2'" [elemClass]="'title_h2 title_gray'" [text]="movie?.original_title"></app-title>
   </div>
   <div class="view__row">
     <picture class="view__poster">
@@ -37,7 +37,7 @@
   </div>
   <div class="view__description">{{movie?.overview}}</div>
   <div class="view__wrap" *ngIf="movieUrl">
-    <h2 class="title title_h2 title__view">Трейлер</h2>
+    <app-title [level]="'h2'" [elemClass]="'title_h2'" [text]="title"></app-title>
     <div class="view__video">
       <iframe width="560" height="315" [src]="movieUrl | safe: 'resourceUrl'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen"></iframe>
     </div>

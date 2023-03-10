@@ -1,4 +1,4 @@
-@import "../../../assets/scss/mixins";
+@import "src/assets/scss/mixins";
 
 .banner {
   height: 100%;
@@ -41,23 +41,7 @@
     }
 
     @include media-breakpoint-landscape(420px) {
-      padding: 16px 0;
-    }
-  }
-
-  &__title {
-    text-align: center;
-
-    @include media-breakpoint(lg) {
-      margin: 0 0 20px;
-    }
-
-    @include media-breakpoint(sm) {
-      margin: 0 0 14px;
-    }
-
-    @include media-breakpoint-landscape(420px) {
-      margin: 0;
+      padding: 12px 0;
     }
   }
 

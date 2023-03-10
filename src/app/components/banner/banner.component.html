@@ -9,7 +9,7 @@
       </a>
       <div class="banner__info">
         <div class="banner__container">
-          <h1 class="title title_h1 banner__title">{{movie?.title}}</h1>
+          <app-title [level]="'h1'" [elemClass]="'title_h1 title_banner'" [text]="movie?.title"></app-title>
           <app-button (onClicked)="goToViewPage(movie.id)" [elemClass]="'banner__btn'" [textBtn]="textBtn"></app-button>
         </div>
       </div>

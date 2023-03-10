@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {menuList} from "../../Model/menu-list";
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,7 @@ export class HeaderComponent {
     this.isClassVisible = !this.isClassVisible;
   }
 
-  menuList = [
+  menuList: menuList[] = [
     {
       title: "showtimes",
       text: "movies",

@@ -1,4 +1,8 @@
-@import "../../../../assets/scss/mixins";
+@import "src/assets/scss/mixins";
+
+:host {
+  flex-shrink: 0;
+}
 
 .btn {
   background-color: rgba(252, 40, 54, 1);
@@ -6,16 +10,11 @@
   padding: 12px 36px;
   color: rgba(255, 255, 255, 1);
 
-  @include media-breakpoint(sm) {
-    padding: 10px 26px;
-  }
-
   &:hover {
     background-color: rgba(248, 3, 20, 1);
   }
-}
 
-//Not Found Page
-.not-found__btn {
-  margin: 24px 0 0;
+  &_not-found {
+    margin: 24px 0 0;
+  }
 }

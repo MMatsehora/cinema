@@ -1,0 +1,66 @@
+@import "src/assets/scss/mixins";
+
+.title {
+  font-family: 'Formular-Bold', sans-serif;
+
+  &_banner {
+    text-align: center;
+
+    @include media-breakpoint(lg) {
+      margin: 0 0 20px;
+    }
+
+    @include media-breakpoint(sm) {
+      margin: 0 0 14px;
+    }
+
+    @include media-breakpoint-landscape(420px) {
+      margin: 0;
+    }
+  }
+
+  &_aside {
+    text-align: center;
+  }
+
+  &_view {
+    margin: 0 0 10px;
+
+    @include media-breakpoint(sm) {
+      margin: 0 0 4px;
+    }
+  }
+
+  &_about {
+    margin: 0 0 10px;
+  }
+
+  &_gray {
+    color: rgba(153, 153, 153, 1);
+  }
+
+  &_h1 {
+    font-size: 36px;
+
+    @include media-breakpoint(sm) {
+      font-size: 24px;
+    }
+
+    @include media-breakpoint-landscape(420px) {
+      font-size: 24px;
+    }
+  }
+
+  &_h2 {
+    font-size: 24px;
+    margin: 0 0 16px;
+
+    @include media-breakpoint(sm) {
+      font-size: 20px;
+    }
+
+    @include media-breakpoint-landscape(420px) {
+      font-size: 20px;
+    }
+  }
+}

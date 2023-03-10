@@ -10,6 +10,7 @@ export class AsideComponent implements OnInit {
   movies: any;
   movie: any;
   randomNum!: number;
+  title: string = 'Soon in cinema';
 
   constructor(private movieService : MovieService) { }
 

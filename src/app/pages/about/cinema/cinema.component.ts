@@ -8,6 +8,7 @@ import { BeforeSlideDetail } from "lightgallery/lg-events";
   styleUrls: ['./cinema.component.scss']
 })
 export class CinemaComponent implements OnInit {
+  title: string = 'About a cinema';
 
   constructor() { }
 

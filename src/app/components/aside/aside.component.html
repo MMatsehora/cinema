@@ -1,5 +1,5 @@
 <aside class="aside">
-  <h2 class="title title_h2 aside__title">Soon in cinema</h2>
+  <app-title [level]="'h2'" [elemClass]="'title_h2 title_aside'" [text]="title"></app-title>
   <div class="aside__future">
     <a class="aside__future-link" [routerLink]="['/view', movie?.id]">
       <picture class="aside__future-picture">

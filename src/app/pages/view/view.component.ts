@@ -11,6 +11,7 @@ import {Countries} from "../../Model/countries";
   styleUrls: ['./view.component.scss']
 })
 export class ViewComponent implements OnInit {
+  title: string = 'Trailer';
   id !: string;
   movie !: any;
   movieUrl !: any;

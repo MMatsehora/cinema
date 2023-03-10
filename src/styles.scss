@@ -68,31 +68,6 @@ body {
   }
 }
 
-//title
-.title {
-  font-family: 'Formular-Bold', sans-serif;
-
-  &_h1 {
-    font-size: 36px;
-
-    @include media-breakpoint(sm) {
-      font-size: 24px;
-    }
-
-    @include media-breakpoint-landscape(420px) {
-      font-size: 24px;
-    }
-  }
-
-  &_h2 {
-    font-size: 24px;
-    margin: 0 0 10px;
-    @include media-breakpoint(sm) {
-      font-size: 20px;
-    }
-  }
-}
-
 //Swiper Carousel
 .swiper-button-next,
 .swiper-button-prev {

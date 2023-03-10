@@ -3,6 +3,6 @@ export interface menuList {
   text: string;
   routerLink: {
     firstParam: string,
-    secondParam: string
+    secondParam?: string
   }
 }

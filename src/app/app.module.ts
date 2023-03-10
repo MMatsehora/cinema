@@ -25,6 +25,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ButtonComponent } from './components/ui/button/button.component';
 import { LogoComponent } from './components/ui/logo/logo.component';
 import { MenuComponent } from './components/ui/menu/menu.component';
+import { TitleComponent } from './components/ui/title/title.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { MenuComponent } from './components/ui/menu/menu.component';
     NotFoundComponent,
     ButtonComponent,
     LogoComponent,
-    MenuComponent
+    MenuComponent,
+    TitleComponent
   ],
   imports: [BrowserModule, SwiperModule, HttpClientModule, SafePipeModule, LightgalleryModule, AppRoutingModule],
   providers: [],

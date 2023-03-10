@@ -1,4 +1,4 @@
-@import "../../../assets/scss/mixins";
+@import "src/assets/scss/mixins";
 
 .view__poster {
   display: flex;
@@ -17,14 +17,6 @@
 
 .view__titles {
   margin: 0 0 16px;
-}
-
-.view__title {
-  margin: 0 0 10px;
-
-  @include media-breakpoint(sm) {
-    margin: 0 0 4px;
-  }
 }
 
 .view__subtitle {
