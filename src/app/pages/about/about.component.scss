@@ -1,10 +1,10 @@
 @import "src/assets/scss/mixins";
 
-.tabs {
+.about__tabs {
   margin: 0 0 20px;
   display: flex;
 
-  &__item {
+  &-item {
     margin: 0 15px 0 0;
     padding: 7px 16px;
     color: rgba(240, 240, 240, 1);
