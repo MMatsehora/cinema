@@ -9,7 +9,6 @@ import { RouterModule } from "@angular/router";
 import { AsideComponent } from "./components/aside/aside.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { MovieComponent } from "./components/movie/movie.component";
-import { CommaSeparatePipe } from './pipes/comma-separate.pipe';
 
 @NgModule({
  declarations: [
@@ -20,8 +19,7 @@ import { CommaSeparatePipe } from './pipes/comma-separate.pipe';
    HeaderComponent,
    AsideComponent,
    MovieComponent,
-   FooterComponent,
-   CommaSeparatePipe
+   FooterComponent
  ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -33,8 +31,7 @@ import { CommaSeparatePipe } from './pipes/comma-separate.pipe';
     HeaderComponent,
     AsideComponent,
     MovieComponent,
-    FooterComponent,
-    CommaSeparatePipe
+    FooterComponent
   ]
 })
 
