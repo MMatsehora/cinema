@@ -38,10 +38,11 @@ export class MovieService {
         element.backdrop_path = 'https://image.tmdb.org/t/p/original' + element.backdrop_path + '?api_key=' + environment.api_key;
       })
     }
+
     return movies;
   }
 
-  getModifyMovie(movie : ViewMovie) {
+  getModifyMovie(movie : ViewMovie) : ViewMovie {
     if (movie) {
       movie.poster_path = 'https://image.tmdb.org/t/p/original' + movie.poster_path + '?api_key=' + environment.api_key;
       movie.backdrop_path = 'https://image.tmdb.org/t/p/original' + movie.backdrop_path + '?api_key=' + environment.api_key;
@@ -50,6 +51,7 @@ export class MovieService {
         movie.video = item.key;
       })
     }
+
     return movie;
   }
 }

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeLayoutComponent } from "./templates/home-layout/home-layout.component";
 import { GeneralLayoutComponent } from "./templates/general-layout/general-layout.component";
-import { NotFoundComponent } from "./pages/not-found/not-found.component";
 
 const routes: Routes = [
   {
@@ -18,7 +17,7 @@ const routes: Routes = [
       { path: 'view/:id', loadChildren: () => import('./pages/view/view.module').then(m => m.ViewModule) }
     ]
   },
-  { path: '**', component: NotFoundComponent }
+  { path: '**', loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule) }
 ];
 
 @NgModule({

@@ -6,15 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeLayoutComponent } from './templates/home-layout/home-layout.component';
 import { GeneralLayoutComponent } from './templates/general-layout/general-layout.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { SharedModule } from "./shared/shared.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeLayoutComponent,
-    GeneralLayoutComponent,
-    NotFoundComponent
+    GeneralLayoutComponent
   ],
   imports: [
     BrowserModule,

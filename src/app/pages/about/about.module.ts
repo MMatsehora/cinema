@@ -18,6 +18,7 @@ import { RouterModule } from "@angular/router";
     RouterModule.forChild([
       {
         path: '', component: AboutComponent, children: [
+          {path: '', redirectTo: 'cinema', pathMatch: 'full'},
           {path: 'cinema', component: CinemaComponent},
           {path: 'contacts', component: ContactsComponent}
         ]
