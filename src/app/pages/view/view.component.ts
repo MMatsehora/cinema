@@ -18,9 +18,6 @@ export class ViewComponent implements OnInit {
   genres: string = '';
   countries: string = '';
   actors: string = '';
-  separatedGenres: string = '';
-  separatedCountries: string = '';
-  separatedActors: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -51,9 +48,6 @@ export class ViewComponent implements OnInit {
       this.movie.production_countries.forEach((item : Countries) => {
         this.countries += item.name;
       })
-
-      this.separatedGenres = this.movieService.separateByComma(this.genres);
-      this.separatedCountries = this.movieService.separateByComma(this.countries);
     }, error => {
       console.log('Error while fetching popular movies.', error);
     })
@@ -68,8 +62,6 @@ export class ViewComponent implements OnInit {
           this.actors += item.name;
         }
       })
-
-      this.separatedActors = this.movieService.separateByComma(this.actors);
     })
   }
 }

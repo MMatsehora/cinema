@@ -15,15 +15,15 @@
       </div>
       <div class="view__info-row">
         <div class="view__info-col">Country:</div>
-        <div class="view__info-col">{{separatedCountries}}</div>
+        <div class="view__info-col">{{countries | commaSeparate}}</div>
       </div>
       <div class="view__info-row">
         <div class="view__info-col">Genre:</div>
-        <div class="view__info-col">{{separatedGenres | lowercase}}</div>
+        <div class="view__info-col">{{genres | commaSeparate | lowercase}}</div>
       </div>
-      <div class="view__info-row" *ngIf="separatedActors">
+      <div class="view__info-row" *ngIf="actors">
         <div class="view__info-col">Actors:</div>
-        <div class="view__info-col">{{separatedActors}}</div>
+        <div class="view__info-col">{{actors | commaSeparate}}</div>
       </div>
       <div class="view__info-row" *ngIf="movie?.runtime">
         <div class="view__info-col">Duration:</div>

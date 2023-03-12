@@ -52,8 +52,4 @@ export class MovieService {
     }
     return movie;
   }
-
-  separateByComma(str: string) {
-    return str.replace(/([a-z])([A-Z])/g, '$1, $2');
-  }
 }
