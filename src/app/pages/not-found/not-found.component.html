@@ -1,5 +1,5 @@
 <div class="not-found">
-  <h1 class="title not-found__title">404</h1>
+  <app-title [level]="'h1'" [elemClass]="'title_h1 title_not-found'" [text]="title"></app-title>
   <p class="not-found__text">Page not found</p>
   <app-button (onClicked)="goToHomePage()" [elemClass]="'btn_not-found'" [textBtn]="textBtn"></app-button>
 </div>

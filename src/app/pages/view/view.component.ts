@@ -14,7 +14,7 @@ export class ViewComponent implements OnInit {
   title: string = 'Trailer';
   id !: string;
   movie !: any;
-  movieUrl !: any;
+  movieUrl: string = '';
   genres: string = '';
   countries: string = '';
   actors: string = '';
@@ -36,6 +36,7 @@ export class ViewComponent implements OnInit {
   }
 
   getViewMovie(id: string) {
+    this.movieUrl = '';
     this.genres = '';
     this.countries = '';
 

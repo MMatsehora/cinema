@@ -45,6 +45,7 @@ export class MovieService {
     if (movie) {
       movie.poster_path = 'https://image.tmdb.org/t/p/original' + movie.poster_path + '?api_key=' + environment.api_key;
       movie.backdrop_path = 'https://image.tmdb.org/t/p/original' + movie.backdrop_path + '?api_key=' + environment.api_key;
+
       movie.videos.results.forEach((item: any) => {
         movie.video = item.key;
       })

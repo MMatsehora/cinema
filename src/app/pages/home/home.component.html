@@ -1,1 +1,18 @@
-<app-banner></app-banner>
+<div class="home">
+  <swiper [config]="config" class="home__swiper">
+    <ng-template swiperSlide *ngFor="let movie of movies?.results" class="home__item">
+      <a class="banner__film" [routerLink]="['/view', movie.id]">
+        <picture>
+          <source srcset="{{movie?.poster_path}}" media="(max-width: 567px)"/>
+          <img class="home__film-img" src="{{movie?.backdrop_path}}" alt="" />
+        </picture>
+      </a>
+      <div class="home__info">
+        <div class="home__container">
+          <app-title [level]="'h1'" [elemClass]="'title_h1 title_banner'" [text]="movie?.title"></app-title>
+          <app-button (onClicked)="goToViewPage(movie.id)" [textBtn]="textBtn"></app-button>
+        </div>
+      </div>
+    </ng-template>
+  </swiper>
+</div>
