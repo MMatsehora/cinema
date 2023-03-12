@@ -5,7 +5,6 @@ import { SafePipeModule } from 'safe-pipe';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { SwiperModule } from "swiper/angular";
 import { HomeLayoutComponent } from './templates/home-layout/home-layout.component';
@@ -23,7 +22,6 @@ import { SharedModule } from "./shared/shared.module";
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     BannerComponent,
     HomeLayoutComponent,
     HomeComponent,

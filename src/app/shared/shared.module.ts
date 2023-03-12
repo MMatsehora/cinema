@@ -1,8 +1,9 @@
 import {NgModule} from "@angular/core";
-import {LogoComponent} from "./ui/logo/logo.component";
-import {MenuComponent} from "./ui/menu/menu.component";
-import {TitleComponent} from "./ui/title/title.component";
-import {ButtonComponent} from "./ui/button/button.component";
+import {HeaderComponent} from "./components/header/header.component";
+import {LogoComponent} from "./components/ui/logo/logo.component";
+import {MenuComponent} from "./components/ui/menu/menu.component";
+import {TitleComponent} from "./components/ui/title/title.component";
+import {ButtonComponent} from "./components/ui/button/button.component";
 import {CommonModule} from "@angular/common";
 import {RouterModule} from "@angular/router";
 
@@ -11,14 +12,17 @@ import {RouterModule} from "@angular/router";
    ButtonComponent,
    LogoComponent,
    MenuComponent,
-   TitleComponent
+   TitleComponent,
+   HeaderComponent
  ],
   imports: [CommonModule, RouterModule],
   exports: [
     ButtonComponent,
     LogoComponent,
     MenuComponent,
-    TitleComponent
+    TitleComponent,
+    HeaderComponent,
+    CommonModule
   ]
 })
 

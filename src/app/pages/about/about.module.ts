@@ -5,7 +5,6 @@ import { CinemaComponent } from "./cinema/cinema.component";
 import { LightgalleryModule } from "lightgallery/angular";
 import { SharedModule } from "../../shared/shared.module";
 import { RouterModule } from "@angular/router";
-import { CommonModule } from "@angular/common";
 
 @NgModule({
  declarations: [
@@ -15,7 +14,6 @@ import { CommonModule } from "@angular/common";
  ],
   imports: [
     LightgalleryModule,
-    CommonModule,
     SharedModule,
     RouterModule.forChild([
       {
