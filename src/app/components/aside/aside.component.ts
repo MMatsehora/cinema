@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {MovieService} from "../../services/movie.service";
+import {Component, OnInit} from '@angular/core';
+import {MovieService} from "../../shared/services/movie.service";
+import {Router, NavigationEnd} from "@angular/router";
 
 @Component({
   selector: 'app-aside',
@@ -12,10 +13,18 @@ export class AsideComponent implements OnInit {
   randomNum!: number;
   title: string = 'Soon in cinema';
 
-  constructor(private movieService : MovieService) { }
+  constructor(
+    private movieService: MovieService,
+    private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.getUpcomingMovies();
+      }
+    });
+  }
 
   ngOnInit(): void {
-    this.getUpcomingMovies();
+
   }
 
   getUpcomingMovies() {

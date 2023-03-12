@@ -1,15 +1,9 @@
 @import "src/assets/scss/mixins";
 
 .view {
-  padding: 30px 0 40px;
-
-  @include media-breakpoint(md) {
-    padding: 20px 0 30px;
-  }
-
   &__poster {
     display: flex;
-    max-width: 300px;
+    max-width: 236px;
     margin: 0 0 20px;
 
     @include media-breakpoint(lg) {

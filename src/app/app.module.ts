@@ -8,24 +8,17 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { SwiperModule } from "swiper/angular";
-import { LightgalleryModule } from "lightgallery/angular";
 import { HomeLayoutComponent } from './templates/home-layout/home-layout.component';
 import { HomeComponent } from './pages/home/home.component';
 import { GeneralLayoutComponent } from './templates/general-layout/general-layout.component';
 import { AfishaComponent } from './pages/afisha/afisha.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { AsideComponent } from './components/aside/aside.component';
-import { AboutComponent } from './pages/about/about.component';
 import { FutureComponent } from './pages/future/future.component';
 import { ViewComponent } from './pages/view/view.component';
+import { AsideComponent } from "./components/aside/aside.component";
 import { MovieComponent } from './components/movie/movie.component';
-import { ContactsComponent } from './pages/about/contacts/contacts.component';
-import { CinemaComponent } from './pages/about/cinema/cinema.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { ButtonComponent } from './components/ui/button/button.component';
-import { LogoComponent } from './components/ui/logo/logo.component';
-import { MenuComponent } from './components/ui/menu/menu.component';
-import { TitleComponent } from './components/ui/title/title.component';
+import { SharedModule } from "./shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -37,20 +30,20 @@ import { TitleComponent } from './components/ui/title/title.component';
     GeneralLayoutComponent,
     AfishaComponent,
     FooterComponent,
-    AsideComponent,
-    AboutComponent,
     FutureComponent,
     ViewComponent,
+    AsideComponent,
     MovieComponent,
-    ContactsComponent,
-    CinemaComponent,
-    NotFoundComponent,
-    ButtonComponent,
-    LogoComponent,
-    MenuComponent,
-    TitleComponent
+    NotFoundComponent
   ],
-  imports: [BrowserModule, SwiperModule, HttpClientModule, SafePipeModule, LightgalleryModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    SwiperModule,
+    HttpClientModule,
+    SafePipeModule,
+    AppRoutingModule,
+    SharedModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

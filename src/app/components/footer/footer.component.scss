@@ -11,9 +11,14 @@
 
   &__bottom {
     padding: 16px 0;
+    text-align: center;
 
     @include media-breakpoint(sm) {
       padding: 12px 0;
     }
+  }
+
+  &__text {
+    margin: 10px 0 0;
   }
 }

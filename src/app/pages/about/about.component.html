@@ -1,10 +1,7 @@
 <div class="about">
-  <div class="about__col">
-    <div class="tabs">
-      <a class="tabs__item" routerLinkActive="active" [routerLink]="['/about', 'cinema']">cinema</a>
-      <a class="tabs__item" routerLinkActive="active" [routerLink]="['/about', 'contacts']">contacts</a>
-    </div>
-    <router-outlet></router-outlet>
+  <div class="tabs">
+    <a class="tabs__item" routerLinkActive="active" [routerLink]="['/about', 'cinema']">cinema</a>
+    <a class="tabs__item" routerLinkActive="active" [routerLink]="['/about', 'contacts']">contacts</a>
   </div>
-  <app-aside></app-aside>
+  <router-outlet></router-outlet>
 </div>

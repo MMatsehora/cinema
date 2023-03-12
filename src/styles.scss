@@ -45,6 +45,14 @@ body {
     max-width: 1200px;
     @include container;
   }
+
+  &__row {
+    @include row;
+  }
+
+  &__col {
+    @include col;
+  }
 }
 
 //Swiper Carousel
