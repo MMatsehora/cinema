@@ -75,3 +75,56 @@ body {
     color: rgba(255, 255, 255, 1);
   }
 }
+
+//Form
+.form {
+  background: linear-gradient(to left, rgb(12, 12, 12), rgb(27, 27, 27) 50%, rgb(12, 12, 12));
+
+  &_registration {
+    max-width: 600px;
+    margin: 60px auto 20px;
+    padding: 20px;
+    border: 1px solid rgba(238, 238, 238, 0.1);
+  }
+
+  .title_h1 {
+    margin: 0 auto 20px;
+    text-align: center;
+  }
+
+  &__label {
+    display: block;
+    margin: 0 0 6px;
+    font-size: 18px;
+  }
+
+  &__control {
+    display: block;
+    color: #888;
+    margin-bottom: 14px;
+
+    &.invalid {
+      color: #dc3545;
+
+      input {
+        border: 2px solid rgba(252, 40, 54, 1);
+      }
+    }
+  }
+
+  &__validation {
+    margin: 4px 0 0;
+    font-size: 16px;
+    color: #dc3545;
+  }
+
+  &__input {
+    display: block;
+    padding: 12px;
+    font-size: 16px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+  }
+}
