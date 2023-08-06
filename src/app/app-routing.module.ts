@@ -7,7 +7,8 @@ const routes: Routes = [
   {
     path: '', component: HomeLayoutComponent, children: [
       { path: '', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule), pathMatch: "full" },
-      { path: 'sign-up', loadChildren: () => import('./pages/sign-up/sign-up.module').then(m => m.SignUpModule)}
+      { path: 'sign-up', loadChildren: () => import('./pages/sign-up/sign-up.module').then(m => m.SignUpModule)},
+      { path: 'auth', loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule)}
     ]
   },
   {

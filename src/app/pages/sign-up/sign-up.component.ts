@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { AuthService } from "../../shared/services/auth.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-sign-up',
@@ -8,10 +10,13 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 })
 export class SignUpComponent implements OnInit {
   form!: FormGroup;
-  public title: string = 'Registration';
-  public textBtn: string = 'Sign Up'
+  public title: string = `Registration`;
+  public textBtn: string = 'Sign Up';
 
-  constructor() { }
+  constructor(
+    private auth: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -28,11 +33,14 @@ export class SignUpComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.form.valid) {
-      console.log('form submit: ', this.form);
-      const formData = {...this.form.value};
-      console.log(formData);
-      this.form.reset();
-    }
+    const formData = {...this.form.value};
+    console.log(formData);
+    this.auth.signUp(formData).subscribe((response) => {
+      console.log(response);
+      this.router.navigate(['/auth']);
+    }, (error) => {
+      const errorMessage = error.error.error.message;
+      console.log(errorMessage);
+    });
   }
 }

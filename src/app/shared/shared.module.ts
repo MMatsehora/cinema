@@ -9,6 +9,7 @@ import { RouterModule } from "@angular/router";
 import { AsideComponent } from "./components/aside/aside.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { MovieComponent } from "./components/movie/movie.component";
+import { FormComponent } from './components/form/form.component';
 
 @NgModule({
  declarations: [
@@ -19,7 +20,8 @@ import { MovieComponent } from "./components/movie/movie.component";
    HeaderComponent,
    AsideComponent,
    MovieComponent,
-   FooterComponent
+   FooterComponent,
+   FormComponent
  ],
   imports: [CommonModule, RouterModule],
   exports: [

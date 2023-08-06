@@ -12,7 +12,7 @@ import { SharedModule } from "./shared/shared.module";
   declarations: [
     AppComponent,
     HomeLayoutComponent,
-    GeneralLayoutComponent
+    GeneralLayoutComponent,
   ],
   imports: [
     BrowserModule,
