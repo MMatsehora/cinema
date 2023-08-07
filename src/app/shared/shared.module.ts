@@ -9,7 +9,6 @@ import { RouterModule } from "@angular/router";
 import { AsideComponent } from "./components/aside/aside.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { MovieComponent } from "./components/movie/movie.component";
-import { FormComponent } from './components/form/form.component';
 
 @NgModule({
  declarations: [
@@ -21,7 +20,6 @@ import { FormComponent } from './components/form/form.component';
    AsideComponent,
    MovieComponent,
    FooterComponent,
-   FormComponent
  ],
   imports: [CommonModule, RouterModule],
   exports: [

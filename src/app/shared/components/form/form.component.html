@@ -1,1 +1,35 @@
-<p>form works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmitClick()" class="form form_registration">
+  <app-title [level]="'h1'" [elemClass]="'title_h1'" [text]="title"></app-title>
+  <div
+    class="form__control"
+    [ngClass]="{invalid: form.get('email')?.touched && form.get('email')?.invalid}"
+  >
+    <label for="email" class="form__label">Email:</label>
+    <input id="email" type="text" class="form__input" formControlName="email">
+    <div class="form__validation" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+      <span *ngIf="form.get('email')?.errors?.required">Введите поле email</span>
+      <span *ngIf="form.get('email')?.errors?.email">Введите корретный email</span>
+    </div>
+  </div>
+  <div
+    class="form__control"
+    [ngClass]="{invalid: form.get('password')?.touched && form.get('password')?.invalid}"
+  >
+    <label for="password" class="form__label">Password:</label>
+    <input id="password" type="password" class="form__input" formControlName="password">
+    <div class="form__validation" *ngIf="form.get('password')?.invalid && form.get('password')?.touched">
+      <span *ngIf="form.get('password')?.errors?.required">Пароль не может быть пустым</span>
+      <span
+        *ngIf="form.get('password')?.hasError('minlength') || form.get('password')?.hasError('maxlength')">
+          Не менее 6 и не больше 14 символов. Cейчас введено {{form.get('password')?.value.length}} символов.
+        </span>
+    </div>
+  </div>
+
+  <app-button
+    type="submit"
+    [elemClass]="'btn_form'"
+    [textBtn]="textBtn"
+    [disabled]="form.invalid"
+  ></app-button>
+</form>

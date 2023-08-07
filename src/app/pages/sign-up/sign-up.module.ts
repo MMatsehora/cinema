@@ -1,7 +1,7 @@
 import {NgModule} from "@angular/core";
-import {SharedModule} from "../../shared/shared.module";
 import {RouterModule} from "@angular/router";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormModule} from "../../shared/components/form/form.module";
+
 import {SignUpComponent} from "./sign-up.component";
 
 @NgModule({
@@ -9,9 +9,7 @@ import {SignUpComponent} from "./sign-up.component";
     SignUpComponent
   ],
   imports: [
-    SharedModule,
-    FormsModule,
-    ReactiveFormsModule,
+    FormModule,
     RouterModule.forChild([
       {
         path: '', component: SignUpComponent

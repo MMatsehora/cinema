@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from "../../shared/services/auth.service";
 import { Router } from "@angular/router";
 
@@ -9,7 +8,6 @@ import { Router } from "@angular/router";
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
-  form!: FormGroup;
   public title: string = `Registration`;
   public textBtn: string = 'Sign Up';
 
@@ -19,21 +17,10 @@ export class SignUpComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      email: new FormControl('', [
-        Validators.required,
-        Validators.email
-      ]),
-      password: new FormControl('', [
-        Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(14)
-      ])
-    })
   }
 
-  onSubmit() {
-    const formData = {...this.form.value};
+  onSubmit(data: any): void {
+    const formData = {...data};
     console.log(formData);
     this.auth.signUp(formData).subscribe((response) => {
       console.log(response);
