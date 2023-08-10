@@ -1,5 +1,7 @@
 import {Component, HostListener} from '@angular/core';
 import {menuList} from "../../Model/menu-list";
+import {Router} from "@angular/router";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-header',
@@ -7,10 +9,13 @@ import {menuList} from "../../Model/menu-list";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  public textBtnFirst: string = 'Sign up'
+  public textBtnSecond: string = 'Log in'
   isClassVisible: boolean = false;
 
-  toggleClass() {
-    this.isClassVisible = !this.isClassVisible;
+  constructor(
+    private router: Router,
+    public auth: AuthService) {
   }
 
   @HostListener('document:click', ['$event'])
@@ -45,4 +50,16 @@ export class HeaderComponent {
       }
     }
   ]
+
+  toggleClass() {
+    this.isClassVisible = !this.isClassVisible;
+  }
+
+  goToSignUpPage() {
+    this.router.navigate(['/sign-up'])
+  }
+
+  goToLogInPage() {
+    this.router.navigate(['/auth'])
+  }
 }

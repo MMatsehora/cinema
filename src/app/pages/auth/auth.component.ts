@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../shared/services/auth.service";
 import {Router} from "@angular/router";
+import {NotifierService} from "angular-notifier";
 
 @Component({
   selector: 'app-auth',
@@ -13,14 +14,24 @@ export class AuthComponent implements OnInit {
 
   constructor(
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    public notifier: NotifierService
   ) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(data: any): void {
+  userAuthorize(data: any): void {
     const formData = {...data};
     console.log(formData);
+    this.auth.signIn(formData).subscribe((response) => {
+      console.log(response);
+      this.auth.setToken(response);
+      this.notifier.notify('success', 'Вы вошли в учетную запись.');
+      this.router.navigate(['/dashboard']);
+    }, (error) => {
+      const errorMessage = error.error.error.message;
+      this.notifier.notify('error', errorMessage);
+    })
   }
 }

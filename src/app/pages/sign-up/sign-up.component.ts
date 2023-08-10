@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../shared/services/auth.service";
 import { Router } from "@angular/router";
+import {NotifierService} from "angular-notifier";
 
 @Component({
   selector: 'app-sign-up',
@@ -13,21 +14,24 @@ export class SignUpComponent implements OnInit {
 
   constructor(
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    private notifier: NotifierService
   ) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(data: any): void {
+  userRegister(data: any): void {
     const formData = {...data};
     console.log(formData);
     this.auth.signUp(formData).subscribe((response) => {
       console.log(response);
-      this.router.navigate(['/auth']);
+      this.auth.setToken(response);
+      this.notifier.notify('success', 'Вы вошли в учетную запись.');
+      this.router.navigate(['/dashboard']);
     }, (error) => {
       const errorMessage = error.error.error.message;
-      console.log(errorMessage);
+      this.notifier.notify('error', errorMessage);
     });
   }
 }

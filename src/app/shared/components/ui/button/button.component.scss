@@ -5,13 +5,37 @@
 }
 
 .btn {
-  background-color: rgba(252, 40, 54, 1);
   border-radius: 4px;
-  padding: 12px 36px;
-  color: rgba(255, 255, 255, 1);
+  transition: 0.2s linear;
 
-  &:hover {
-    background-color: rgba(248, 3, 20, 1);
+  &_primary {
+    background-color: rgba(252, 40, 54, 1);
+    color: rgba(255, 255, 255, 1);
+
+    &:hover {
+      background-color: rgba(248, 3, 20, 1);
+    }
+  }
+
+  &_secondary {
+    background-color: rgb(255, 255, 255, 1);
+
+    &:hover {
+      background-color: rgba(252, 40, 54, 1);
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+
+  &_medium {
+    padding: 12px 36px;
+    font-size: 16px;
+    @include media-breakpoint(lg) {
+      font-size: 14px;
+    }
+  }
+
+  &_small {
+    padding: 10px 24px;
   }
 
   &:disabled {
@@ -22,5 +46,9 @@
 
   &_not-found {
     margin: 24px 0 0;
+  }
+
+  &_form {
+    margin: 10px 0 0;
   }
 }

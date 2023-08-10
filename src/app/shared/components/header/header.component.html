@@ -1,7 +1,13 @@
 <header class="header">
   <div class="header__container">
     <app-logo [elemClass]="'header__logo'"></app-logo>
-    <app-menu [isClassVisible]="isClassVisible" [menuList]="menuList"></app-menu>
+    <div class="header__menu">
+      <app-menu [isClassVisible]="isClassVisible" [menuList]="menuList"></app-menu>
+      <div class="header__buttons" *ngIf="!auth.isAuthenticated()">
+        <app-button (onClicked)="goToSignUpPage()" [elemClass]="'btn_primary btn_small'" [textBtn]="textBtnFirst"></app-button>
+        <app-button (onClicked)="goToLogInPage()" [elemClass]="'btn_secondary btn_small'" [textBtn]="textBtnSecond"></app-button>
+      </div>
+    </div>
     <button class="header__burger" (click)="toggleClass()">
       <span class="header__burger-line"></span>
       <span class="header__burger-line"></span>

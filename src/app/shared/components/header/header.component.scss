@@ -27,6 +27,19 @@
     @include container;
   }
 
+  &__menu {
+    display: flex;
+    align-items: center;
+  }
+
+  &__buttons {
+    margin: 0 0 0 30px;
+
+    & > app-button:last-child {
+      margin: 0 0 0 16px;
+    }
+  }
+
   &__burger {
     display: none;
     padding: 15px;
