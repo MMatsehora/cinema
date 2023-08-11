@@ -3,6 +3,7 @@ import {RouterModule} from "@angular/router";
 import {FormModule} from "../../shared/components/form/form.module";
 
 import {SignUpComponent} from "./sign-up.component";
+import {AuthGuard} from "../../shared/services/auth.guard";
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import {SignUpComponent} from "./sign-up.component";
     FormModule,
     RouterModule.forChild([
       {
-        path: '', component: SignUpComponent
+        path: '', component: SignUpComponent, canActivate: [AuthGuard]
       }
     ])
   ],

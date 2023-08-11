@@ -3,6 +3,7 @@ import { RouterModule } from "@angular/router";
 import {FormModule} from "../../shared/components/form/form.module";
 
 import { AuthComponent } from "./auth.component";
+import {AuthGuard} from "../../shared/services/auth.guard";
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { AuthComponent } from "./auth.component";
     FormModule,
     RouterModule.forChild([
       {
-        path: '', component: AuthComponent
+        path: '', component: AuthComponent, canActivate: [AuthGuard]
       }
     ])
   ],
