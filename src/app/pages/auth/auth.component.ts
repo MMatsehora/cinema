@@ -27,6 +27,7 @@ export class AuthComponent implements OnInit {
     this.auth.signIn(formData).subscribe((response) => {
       console.log(response);
       this.auth.setToken(response);
+      this.auth.setUserName(response.displayName);
       this.notifier.notify('success', 'Вы вошли в учетную запись.');
       this.router.navigate(['/dashboard']);
     }, (error) => {

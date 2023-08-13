@@ -3,14 +3,33 @@ import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {FbAuthResponse, User} from "../Model/auth";
+import {AngularFireDatabase} from "@angular/fire/compat/database";
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthService {
+  private userName: string = '';
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private db: AngularFireDatabase
+  ) {
+    this.userName = localStorage.getItem('userName') ?? '';
+  }
+
+  createUserInRealtimeDatabase(uid: string, displayName: string, email: string) {
+    const userRef = this.db.object(`users/${uid}`);
+
+    const userData = {
+      displayName: displayName,
+      email: email,
+      created: new Date() // Добавляем поле created с текущей датой
+    };
+
+    return userRef.update(userData);
+  }
 
   get token(): any {
     const expDateValue = localStorage.getItem('fb-token-exp');
@@ -31,12 +50,12 @@ export class AuthService {
 
   signUp(user: User) : Observable<any> {
     user.returnSecureToken = true;
-    return this.http.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + environment.apiKeyFireBase, user);
+    return this.http.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + environment.firebaseConfig.apiKey, user);
   }
 
   signIn(user: User) : Observable<any> {
     user.returnSecureToken = true;
-    return this.http.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' + environment.apiKeyFireBase, user);
+    return this.http.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' + environment.firebaseConfig.apiKey, user);
   }
 
   logout() {
@@ -59,5 +78,14 @@ export class AuthService {
     } else {
       localStorage.clear();
     }
+  }
+
+  setUserName(name: string) {
+    this.userName = name;
+    localStorage.setItem('userName', name);
+  }
+
+  getUserName(): string {
+    return this.userName;
   }
 }

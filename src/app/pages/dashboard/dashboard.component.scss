@@ -1,0 +1,53 @@
+.dashboard {
+  &__head {
+    display: flex;
+    align-items: center;
+
+    app-title {
+      margin: 0 24px 0 0;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    app-button:last-child {
+      margin: 0 0 0 24px;
+    }
+  }
+
+  &__user {
+    margin: 32px 0 0;
+    display: flex;
+    align-items: center;
+
+    &-logo {
+      margin: 0 20px 0 0;
+      width: 90px;
+      height: 90px;
+      background-color: rgba(48, 49, 52, 1);
+      border-radius: 50%;
+    }
+
+    &-name {
+      font-size: 36px;
+      font-family: 'Formular-Bold', sans-serif;
+    }
+  }
+
+  &__block {
+    margin: 36px 0 0;
+  }
+
+  &__text {
+    margin: 6px 0 0;
+    font-size: 15px;
+    color: #99a9ba;
+
+    &_line {
+      padding: 2px 0 2px 8px;
+      border-left: 2px solid #bd924a;
+    }
+  }
+}

@@ -5,6 +5,8 @@
 }
 
 .btn {
+  display: inline-flex;
+  align-items: center;
   border-radius: 4px;
   transition: 0.2s linear;
 
@@ -26,6 +28,11 @@
     }
   }
 
+  &_tertiary {
+    background: rgba(48, 49, 52, 1);
+    color: rgba(255, 255, 255, 1);
+  }
+
   &_medium {
     padding: 12px 36px;
     font-size: 16px;
@@ -35,13 +42,13 @@
   }
 
   &_small {
-    padding: 10px 24px;
+    padding: 10px 20px;
   }
 
   &:disabled {
     cursor: not-allowed;
-    background: #f4f4f4;
-    color: #111;
+    background: rgba(136, 136, 136, 1);
+    color: rgba(17, 17, 17, 1);
   }
 
   &_not-found {
@@ -50,5 +57,9 @@
 
   &_form {
     margin: 10px 0 0;
+  }
+
+  & > i {
+    margin: 0 6px 0 0;
   }
 }

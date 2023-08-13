@@ -1,4 +1,32 @@
 <div class="dashboard">
-  <app-title [level]="'h1'" [elemClass]="'title_h1'" [text]="title"></app-title>
-  <app-button (onClicked)="userLogOut()" [elemClass]="'btn_primary btn_medium'" [textBtn]="textBtn"></app-button>
+  <div class="dashboard__head">
+    <app-title [level]="'h1'" [elemClass]="'title_h1'" [text]="titleFirst"></app-title>
+    <div class="dashboard__buttons">
+      <app-button
+        [elemClass]="'btn_tertiary btn_small'"
+        [textBtn]="textBtnSecond"
+        [iconClass]="'icon-cog'"></app-button>
+      <app-button
+        (onClicked)="userLogOut()"
+        [elemClass]="'btn_tertiary btn_small'"
+        [iconClass]="'icon-exit'"
+        [textBtn]="textBtnFirst"></app-button>
+    </div>
+  </div>
+  <div class="dashboard__user">
+    <div class="dashboard__user-logo"></div>
+    <div class="dashboard__user-wrap">
+      <div class="dashboard__user-name">{{userName}}</div>
+    </div>
+  </div>
+  <div class="dashboard__block">
+    <app-title [level]="'h2'" [elemClass]="'title_h2'" [text]="titleSecond"></app-title>
+    <div class="dashboard__text">На сайте с <b>2 апреля</b></div>
+    <div class="dashboard__text">Пол: <b>мужской</b></div>
+    <div class="dashboard__text">День рождения: <b>27 февраля 2004</b></div>
+  </div>
+  <div class="dashboard__block">
+    <app-title [level]="'h2'" [elemClass]="'title_h2'" [text]="titleThird"></app-title>
+    <div class="dashboard__text dashboard__text_line">На сайте с <b>2 апреля</b></div>
+  </div>
 </div>

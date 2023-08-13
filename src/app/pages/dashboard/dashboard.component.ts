@@ -9,14 +9,20 @@ import {NotifierService} from "angular-notifier";
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
-  public title: string = `User account`;
-  public textBtn: string = 'Log out';
+  public titleFirst: string = `My profile`;
+  public titleSecond: string = 'Information';
+  public titleThird: string = 'About Me';
+  public textBtnFirst: string = 'Log out';
+  public textBtnSecond: string = 'Settings'
+  userName: string = '';
 
   constructor(
     private auth: AuthService,
     private router: Router,
-    public notifier: NotifierService) { }
+    public notifier: NotifierService)
+  {
+    this.userName = this.auth.getUserName();
+  }
 
   ngOnInit(): void {
   }

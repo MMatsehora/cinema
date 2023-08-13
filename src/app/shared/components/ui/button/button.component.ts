@@ -7,6 +7,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 })
 export class ButtonComponent {
   @Input() elemClass: string = '';
+  @Input() iconClass: string = '';
   @Input() textBtn: string = '';
   @Input() disabled: boolean = false;
   @Input() type?: string = '';

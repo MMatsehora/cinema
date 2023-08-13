@@ -9,6 +9,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 export class FormComponent implements OnInit {
   @Input() title: string = '';
   @Input() textBtn: string = '';
+  @Input() isRegistration: boolean = false;
   @Input() disabled: boolean = false;
   @Output() onClicked = new EventEmitter<void>();
 
@@ -24,7 +25,13 @@ export class FormComponent implements OnInit {
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(14)
-      ])
+      ]),
+      ...(this.isRegistration ? {
+        displayName: new FormControl('', [
+          Validators.required,
+          Validators.minLength(4)
+        ])
+      } : {})
     })
   }
 

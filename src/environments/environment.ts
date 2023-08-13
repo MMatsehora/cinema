@@ -5,7 +5,15 @@
 export const environment = {
   production: false,
   api_key: 'e4815109e80011219fedf03f703f1eca',
-  apiKeyFireBase: 'AIzaSyBiYK6V5mBoTHQgB7Z78voNljDRO8cqLkg'
+  firebaseConfig: {
+    apiKey: "AIzaSyBiYK6V5mBoTHQgB7Z78voNljDRO8cqLkg",
+    authDomain: "angular-cinema-a92c2.firebaseapp.com",
+    projectId: "angular-cinema-a92c2",
+    storageBucket: "angular-cinema-a92c2.appspot.com",
+    messagingSenderId: "627880384010",
+    appId: "1:627880384010:web:6c64a01289a4a1f3b6f1f3",
+    databaseURL: "https://angular-cinema-a92c2-default-rtdb.firebaseio.com"
+  }
 };
 
 /*

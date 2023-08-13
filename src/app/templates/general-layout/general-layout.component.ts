@@ -6,9 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./general-layout.component.scss']
 })
 export class GeneralLayoutComponent implements OnInit {
-  constructor() {
-
-  }
+  constructor() {}
 
   ngOnInit(): void {
   }

@@ -1,5 +1,18 @@
 <form [formGroup]="form" (ngSubmit)="onSubmitClick()" class="form form_registration">
   <app-title [level]="'h1'" [elemClass]="'title_h1'" [text]="title"></app-title>
+  <ng-container *ngIf="isRegistration">
+    <div
+      class="form__control"
+      [ngClass]="{invalid: form.get('displayName')?.touched && form.get('displayName')?.invalid}"
+    >
+      <label for="username" class="form__label">Username:</label>
+      <input id="username" type="text" class="form__input" formControlName="displayName">
+      <div class="form__validation" *ngIf="form.get('displayName')?.invalid && form.get('displayName')?.touched">
+        <span *ngIf="form.get('displayName')?.errors?.required">Логин не должен быть пустым</span>
+        <span *ngIf="form.get('displayName')?.hasError('minlength') ">Не менее 4 символов</span>
+      </div>
+    </div>
+  </ng-container>
   <div
     class="form__control"
     [ngClass]="{invalid: form.get('email')?.touched && form.get('email')?.invalid}"

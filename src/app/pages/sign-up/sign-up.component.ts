@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../shared/services/auth.service";
 import { Router } from "@angular/router";
-import {NotifierService} from "angular-notifier";
+import { NotifierService } from "angular-notifier";
 
 @Component({
   selector: 'app-sign-up',
@@ -27,6 +27,10 @@ export class SignUpComponent implements OnInit {
     this.auth.signUp(formData).subscribe((response) => {
       console.log(response);
       this.auth.setToken(response);
+      this.auth.createUserInRealtimeDatabase(
+        response.localId, response.displayName, response.email
+      );
+      this.auth.setUserName(response.displayName);
       this.notifier.notify('success', 'Вы вошли в учетную запись.');
       this.router.navigate(['/dashboard']);
     }, (error) => {
