@@ -19,8 +19,14 @@
     font-size: 18px;
   }
 
+  &__row {
+    display: flex;
+    gap: 0 30px;
+  }
+
   &__control {
     display: block;
+    flex-grow: 1;
     color: #888;
     margin-bottom: 14px;
 

@@ -1,35 +1,20 @@
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
+import {BehaviorSubject, catchError, Observable, switchMap} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
-import {FbAuthResponse, User} from "../Model/auth";
-import {AngularFireDatabase} from "@angular/fire/compat/database";
+import {FbAuthResponse, UserAuth} from "../Model/auth";
+import {map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthService {
-  private userName: string = '';
+  authState: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
 
   constructor(
-    private http: HttpClient,
-    private db: AngularFireDatabase
-  ) {
-    this.userName = localStorage.getItem('userName') ?? '';
-  }
-
-  createUserInRealtimeDatabase(uid: string, displayName: string, email: string) {
-    const userRef = this.db.object(`users/${uid}`);
-
-    const userData = {
-      displayName: displayName,
-      email: email,
-      created: new Date() // Добавляем поле created с текущей датой
-    };
-
-    return userRef.update(userData);
-  }
+    private http: HttpClient
+  ) { }
 
   get token(): any {
     const expDateValue = localStorage.getItem('fb-token-exp');
@@ -48,14 +33,42 @@ export class AuthService {
     }
   }
 
-  signUp(user: User) : Observable<any> {
+  signUp(user: UserAuth): Observable<any> {
     user.returnSecureToken = true;
-    return this.http.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + environment.firebaseConfig.apiKey, user);
+    return this.http.post(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.firebaseConfig.apiKey}`, user).pipe(
+      catchError(error => {
+        console.error('Sign Up Error:', error);
+        throw error;
+      })
+    );
   }
 
-  signIn(user: User) : Observable<any> {
-    user.returnSecureToken = true;
-    return this.http.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' + environment.firebaseConfig.apiKey, user);
+  signIn(email: string, password: string): Observable<any> {
+    return this.http.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.firebaseConfig.apiKey}`, {
+      email: email,
+      password: password,
+      returnSecureToken: true
+    }).pipe(
+      catchError(error => {
+        console.error('Sign In Error:', error);
+        throw error;
+      })
+    );
+  }
+
+  signUpAndSignIn(user: UserAuth): Observable<any> {
+    return this.signUp(user).pipe(
+      switchMap(signUpResponse => {
+        return this.signIn(user.email, user.password).pipe(
+          map(signInResponse => {
+            return {
+              signUpResponse: signUpResponse,
+              signInResponse: signInResponse
+            };
+          })
+        );
+      })
+    );
   }
 
   logout() {
@@ -75,17 +88,9 @@ export class AuthService {
       const expDate = new Date(new Date().getTime() + +response.expiresIn * 1000);
       localStorage.setItem('fb-token', response.idToken);
       localStorage.setItem('fb-token-exp', expDate.toString());
+      localStorage.setItem('user-id', response.localId);
     } else {
       localStorage.clear();
     }
-  }
-
-  setUserName(name: string) {
-    this.userName = name;
-    localStorage.setItem('userName', name);
-  }
-
-  getUserName(): string {
-    return this.userName;
   }
 }

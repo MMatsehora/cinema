@@ -7,9 +7,10 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
-  @Input() title: string = '';
   @Input() textBtn: string = '';
-  @Input() isRegistration: boolean = false;
+  @Input() isEditProfile: boolean = false;
+  @Input() isSignUp: boolean = false;
+  @Input() isSignIn: boolean = false;
   @Input() disabled: boolean = false;
   @Output() onClicked = new EventEmitter<void>();
 
@@ -17,20 +18,21 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      email: new FormControl('', [
-        Validators.required,
-        Validators.email
-      ]),
-      password: new FormControl('', [
-        Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(14)
-      ]),
-      ...(this.isRegistration ? {
-        displayName: new FormControl('', [
+      ...(this.isSignIn || this.isSignUp ? {
+        email: new FormControl('', [
           Validators.required,
-          Validators.minLength(4)
-        ])
+          Validators.email
+        ]),
+        password: new FormControl('', [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(14)
+        ]),
+      } : {}),
+      ...(this.isSignUp || this.isEditProfile ? {
+        firstName: new FormControl('', Validators.required),
+        lastName: new FormControl('', Validators.required),
+        displayName: new FormControl('', Validators.required)
       } : {})
     })
   }

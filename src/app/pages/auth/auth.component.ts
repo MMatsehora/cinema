@@ -22,14 +22,10 @@ export class AuthComponent implements OnInit {
   }
 
   userAuthorize(data: any): void {
-    const formData = {...data};
-    console.log(formData);
-    this.auth.signIn(formData).subscribe((response) => {
-      console.log(response);
+    this.auth.signIn(data.email, data.password).subscribe((response) => {
       this.auth.setToken(response);
-      this.auth.setUserName(response.displayName);
-      this.notifier.notify('success', 'Вы вошли в учетную запись.');
       this.router.navigate(['/dashboard']);
+      this.notifier.notify('success', 'Вы вошли в учетную запись.');
     }, (error) => {
       const errorMessage = error.error.error.message;
       this.notifier.notify('error', errorMessage);

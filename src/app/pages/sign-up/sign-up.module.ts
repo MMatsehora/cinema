@@ -4,12 +4,14 @@ import {FormModule} from "../../shared/components/form/form.module";
 
 import {SignUpComponent} from "./sign-up.component";
 import {AuthGuard} from "../../shared/services/auth.guard";
+import {SharedModule} from "../../shared/shared.module";
 
 @NgModule({
   declarations: [
     SignUpComponent
   ],
   imports: [
+    SharedModule,
     FormModule,
     RouterModule.forChild([
       {

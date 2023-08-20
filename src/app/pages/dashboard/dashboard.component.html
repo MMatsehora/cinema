@@ -3,6 +3,7 @@
     <app-title [level]="'h1'" [elemClass]="'title_h1'" [text]="titleFirst"></app-title>
     <div class="dashboard__buttons">
       <app-button
+        (onClicked)="userEdit()"
         [elemClass]="'btn_tertiary btn_small'"
         [textBtn]="textBtnSecond"
         [iconClass]="'icon-cog'"></app-button>
@@ -13,15 +14,16 @@
         [textBtn]="textBtnFirst"></app-button>
     </div>
   </div>
-  <div class="dashboard__user">
-    <div class="dashboard__user-logo"></div>
-    <div class="dashboard__user-wrap">
-      <div class="dashboard__user-name">{{userName}}</div>
+  <div class="dashboard__profile">
+    <div class="dashboard__profile-logo"></div>
+    <div class="dashboard__profile-wrap">
+      <div class="dashboard__profile-name">{{ user?.firstName }} {{ user?.lastName }}</div>
+      <div class="dashboard__profile-username">{{ user?.displayName }}</div>
     </div>
   </div>
   <div class="dashboard__block">
     <app-title [level]="'h2'" [elemClass]="'title_h2'" [text]="titleSecond"></app-title>
-    <div class="dashboard__text">На сайте с <b>2 апреля</b></div>
+    <div class="dashboard__text">На сайте с <b>{{ user?.created | date: 'd MMMM' }}</b></div>
     <div class="dashboard__text">Пол: <b>мужской</b></div>
     <div class="dashboard__text">День рождения: <b>27 февраля 2004</b></div>
   </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../shared/services/auth.service";
 import { Router } from "@angular/router";
 import { NotifierService } from "angular-notifier";
+import { userService } from "../../shared/services/user.service";
 
 @Component({
   selector: 'app-sign-up',
@@ -15,24 +16,21 @@ export class SignUpComponent implements OnInit {
   constructor(
     private auth: AuthService,
     private router: Router,
-    private notifier: NotifierService
+    private notifier: NotifierService,
+    private userService: userService
   ) { }
 
   ngOnInit(): void {
   }
 
   userRegister(data: any): void {
-    const formData = {...data};
-    console.log(formData);
-    this.auth.signUp(formData).subscribe((response) => {
-      console.log(response);
-      this.auth.setToken(response);
-      this.auth.createUserInRealtimeDatabase(
-        response.localId, response.displayName, response.email
-      );
-      this.auth.setUserName(response.displayName);
-      this.notifier.notify('success', 'Вы вошли в учетную запись.');
-      this.router.navigate(['/dashboard']);
+    this.auth.signUpAndSignIn(data).subscribe((responses) => {
+      this.auth.setToken(responses.signUpResponse);
+      this.userService.createUserInRealtimeDatabase(responses.signUpResponse.localId, data).subscribe(
+        () => {
+        this.router.navigate(['/dashboard']);
+        this.notifier.notify('success', 'Вы вошли в учетную запись.');
+      })
     }, (error) => {
       const errorMessage = error.error.error.message;
       this.notifier.notify('error', errorMessage);

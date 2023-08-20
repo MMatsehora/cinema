@@ -1,3 +1,4 @@
 <div class="sign-up">
-  <app-form [title]="title" [isRegistration]="true" [textBtn]="textBtn" (onClicked)="userRegister($event)"></app-form>
+  <app-title [level]="'h1'" [elemClass]="'title_h1'" [text]="title"></app-title>
+  <app-form [title]="title" [isSignUp]="true" [textBtn]="textBtn" (onClicked)="userRegister($event)"></app-form>
 </div>

@@ -1,17 +1,24 @@
-import { NgModule } from '@angular/core';
+import {NgModule, Provider} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { NotifierModule } from "angular-notifier";
 import { SharedModule } from "./shared/shared.module";
 import { AngularFireModule } from "@angular/fire/compat";
-import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
+import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFireStorageModule } from "@angular/fire/compat/storage";
 
 import { AppComponent } from './app.component';
 import { HomeLayoutComponent } from './templates/home-layout/home-layout.component';
 import { GeneralLayoutComponent } from './templates/general-layout/general-layout.component';
 import { environment } from "../environments/environment";
+import { AuthInterceptor } from "./shared/interceptors/auth.interceptor";
+
+const INTERCEPTOR_PROVIDER: Provider = {
+  provide: HTTP_INTERCEPTORS,
+  multi: true,
+  useClass: AuthInterceptor
+}
 
 @NgModule({
   declarations: [
@@ -22,7 +29,7 @@ import { environment } from "../environments/environment";
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     AngularFireStorageModule,
     HttpClientModule,
     AppRoutingModule,
@@ -41,7 +48,7 @@ import { environment } from "../environments/environment";
     }),
     SharedModule
   ],
-  providers: [],
+  providers: [INTERCEPTOR_PROVIDER],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

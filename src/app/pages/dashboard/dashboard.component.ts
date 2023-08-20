@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../shared/services/auth.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {NotifierService} from "angular-notifier";
+import {userService} from "../../shared/services/user.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -13,23 +14,32 @@ export class DashboardComponent implements OnInit {
   public titleSecond: string = 'Information';
   public titleThird: string = 'About Me';
   public textBtnFirst: string = 'Log out';
-  public textBtnSecond: string = 'Settings'
-  userName: string = '';
+  public textBtnSecond: string = 'Settings';
+  userId: string | null = '';
+  user: any;
 
   constructor(
     private auth: AuthService,
+    private userService: userService,
+    private activatedRoute: ActivatedRoute,
     private router: Router,
     public notifier: NotifierService)
-  {
-    this.userName = this.auth.getUserName();
-  }
+  { }
 
   ngOnInit(): void {
+    this.userId = localStorage.getItem('user-id');
+    this.userService.getUserById(this.userId).subscribe((response) => {
+      this.user = response;
+    })
   }
 
   userLogOut() {
     this.auth.logout();
     this.router.navigate(['/']);
     this.notifier.notify('warning', 'Вы вышли из учетной записи.')
+  }
+
+  userEdit() {
+    this.router.navigate(['/edit-dashboard']);
   }
 }
