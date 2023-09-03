@@ -6,11 +6,7 @@ import { GeneralLayoutComponent } from "./templates/general-layout/general-layou
 const routes: Routes = [
   {
     path: '', component: HomeLayoutComponent, children: [
-      { path: '', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule), pathMatch: "full" },
-      { path: 'sign-up', loadChildren: () => import('./pages/sign-up/sign-up.module').then(m => m.SignUpModule)},
-      { path: 'auth', loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule)},
-      { path: 'dashboard', loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule)},
-      { path: 'edit-dashboard', loadChildren: () => import('./pages/edit-dashboard/edit-dashboard.module').then(m => m.EditDashboardModule) }
+      { path: '', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule), pathMatch: "full" }
     ]
   },
   {
@@ -18,7 +14,11 @@ const routes: Routes = [
       { path: 'afisha', loadChildren: () => import('./pages/afisha/afisha.module').then(m => m.AfishaModule) },
       { path: 'future', loadChildren: () => import('./pages/future/future.module').then(m => m.FutureModule) },
       { path: 'about', loadChildren: () => import('./pages/about/about.module').then(m => m.AboutModule) },
-      { path: 'view/:id', loadChildren: () => import('./pages/view/view.module').then(m => m.ViewModule) }
+      { path: 'view/:id', loadChildren: () => import('./pages/view/view.module').then(m => m.ViewModule) },
+      { path: 'dashboard', loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule) },
+      { path: 'sign-up', loadChildren: () => import('./pages/sign-up/sign-up.module').then(m => m.SignUpModule)},
+      { path: 'auth', loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule)},
+      { path: 'edit-dashboard', loadChildren: () => import('./pages/edit-dashboard/edit-dashboard.module').then(m => m.EditDashboardModule) }
     ]
   },
   { path: '**', loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule) }
