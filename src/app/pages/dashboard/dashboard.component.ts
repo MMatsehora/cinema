@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../shared/services/auth.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {Router} from "@angular/router";
 import {NotifierService} from "angular-notifier";
 import {userService} from "../../shared/services/user.service";
 
@@ -21,7 +21,6 @@ export class DashboardComponent implements OnInit {
   constructor(
     private auth: AuthService,
     private userService: userService,
-    private activatedRoute: ActivatedRoute,
     private router: Router,
     public notifier: NotifierService)
   { }

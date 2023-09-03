@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {NotifierService} from "angular-notifier";
 import { userService } from "../../shared/services/user.service";
+import {Observable} from "rxjs";
+import firebase from "firebase/compat";
+import User = firebase.User;
 
 @Component({
   selector: 'app-edit-dashboard',
@@ -12,6 +15,7 @@ export class EditDashboardComponent implements OnInit {
   public title: string = `Edit profile`;
   public textBtn: string = 'Edit';
   userId: string | null = '';
+  user$!: Observable<User>;
 
   constructor(
     private router: Router,
@@ -20,10 +24,11 @@ export class EditDashboardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.userId = localStorage.getItem('user-id');
+    this.user$ = this.userService.getUserById(this.userId);
   }
 
   editProfile(data: any): void {
-    this.userId = localStorage.getItem('user-id');
     this.userService.updateUser(this.userId, data).subscribe(
     () => {
       this.router.navigate(['/dashboard']);

@@ -27,8 +27,8 @@
     <div class="dashboard__text">Пол: <b>мужской</b></div>
     <div class="dashboard__text">День рождения: <b>27 февраля 2004</b></div>
   </div>
-  <div class="dashboard__block">
+  <div class="dashboard__block" *ngIf="user?.textarea">
     <app-title [level]="'h2'" [elemClass]="'title_h2'" [text]="titleThird"></app-title>
-    <div class="dashboard__text dashboard__text_line">На сайте с <b>2 апреля</b></div>
+    <div class="dashboard__text dashboard__text_line">{{user?.textarea}}</div>
   </div>
 </div>

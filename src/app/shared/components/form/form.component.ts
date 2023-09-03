@@ -12,6 +12,7 @@ export class FormComponent implements OnInit {
   @Input() isSignUp: boolean = false;
   @Input() isSignIn: boolean = false;
   @Input() disabled: boolean = false;
+  @Input() user: any | null;
   @Output() onClicked = new EventEmitter<void>();
 
   form!: FormGroup;
@@ -30,9 +31,12 @@ export class FormComponent implements OnInit {
         ]),
       } : {}),
       ...(this.isSignUp || this.isEditProfile ? {
-        firstName: new FormControl('', Validators.required),
-        lastName: new FormControl('', Validators.required),
-        displayName: new FormControl('', Validators.required)
+        firstName: new FormControl(this.user ? this.user.firstName : '', Validators.required),
+        lastName: new FormControl(this.user ? this.user.lastName : '', Validators.required),
+        displayName: new FormControl(this.user ? this.user.displayName : '', Validators.required)
+      } : {}),
+      ...(this.isEditProfile ? {
+        textarea: new FormControl(this.user ? this.user.textarea : '', null)
       } : {})
     })
   }

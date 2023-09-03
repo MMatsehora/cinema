@@ -6,7 +6,7 @@
         [ngClass]="{invalid: form.get('firstName')?.touched && form.get('firstName')?.invalid}"
       >
         <label for="firstName" class="form__label">Name:</label>
-        <input id="firstName" type="text" class="form__input" formControlName="firstName">
+        <input id="firstName" type="text" class="form__input" formControlName="firstName" placeholder="First Name">
         <div class="form__validation" *ngIf="form.get('firstName')?.invalid && form.get('firstName')?.touched">
           <span *ngIf="form.get('firstName')?.errors?.required">Name не должен быть пустым</span>
         </div>
@@ -16,7 +16,7 @@
         [ngClass]="{invalid: form.get('lastName')?.touched && form.get('lastName')?.invalid}"
       >
         <label for="lastName" class="form__label">Surname:</label>
-        <input id="lastName" type="text" class="form__input" formControlName="lastName">
+        <input id="lastName" type="text" class="form__input" formControlName="lastName" placeholder="Last Name">
         <div class="form__validation" *ngIf="form.get('lastName')?.invalid && form.get('lastName')?.touched">
           <span *ngIf="form.get('lastName')?.errors?.required">Surname не должен быть пустым</span>
         </div>
@@ -27,10 +27,16 @@
       [ngClass]="{invalid: form.get('displayName')?.touched && form.get('displayName')?.invalid}"
     >
       <label for="username" class="form__label">Username:</label>
-      <input id="username" type="text" class="form__input" formControlName="displayName">
+      <input id="username" type="text" class="form__input" formControlName="displayName" placeholder="User Name">
       <div class="form__validation" *ngIf="form.get('displayName')?.invalid && form.get('displayName')?.touched">
         <span *ngIf="form.get('displayName')?.errors?.required">Логин не должен быть пустым</span>
       </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="isEditProfile">
+    <div class="form__control">
+      <label for="textarea" class="form__label">About me:</label>
+      <textarea id="textarea" placeholder="Введите текст" formControlName="textarea" class="form__input form__input_textarea"></textarea>
     </div>
   </ng-container>
   <ng-container *ngIf="isSignUp || isSignIn">
