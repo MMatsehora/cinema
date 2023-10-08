@@ -15,7 +15,9 @@
     </div>
   </div>
   <div class="dashboard__profile">
-    <div class="dashboard__profile-logo"></div>
+    <div class="dashboard__profile-logo">
+      <img [src]="user?.photoUser" alt="">
+    </div>
     <div class="dashboard__profile-wrap">
       <div class="dashboard__profile-name">{{ user?.firstName }} {{ user?.lastName }}</div>
       <div class="dashboard__profile-username">{{ user?.displayName }}</div>

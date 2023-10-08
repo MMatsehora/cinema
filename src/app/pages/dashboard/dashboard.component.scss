@@ -23,11 +23,20 @@
     align-items: center;
 
     &-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin: 0 20px 0 0;
       width: 90px;
       height: 90px;
       background-color: rgba(48, 49, 52, 1);
       border-radius: 50%;
+      overflow: hidden;
+
+      & > img {
+        object-position: center;
+        object-fit: contain;
+      }
     }
 
     &-wrap {

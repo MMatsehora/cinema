@@ -42,4 +42,7 @@
       <iframe width="560" height="315" [src]="movieUrl | safe: 'resourceUrl'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen"></iframe>
     </div>
   </ng-container>
+  <div class="view__comments">
+    <app-title [level]="'h2'" [elemClass]="'title_h2'" [text]="titleSecond"></app-title>
+  </div>
 </div>

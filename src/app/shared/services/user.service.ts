@@ -1,7 +1,8 @@
 import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {Observable} from "rxjs";
+import {AuthService} from "./auth.service";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,8 @@ import {Observable} from "rxjs";
 
 export class userService {
   constructor(
-    private http: HttpClient) {
+    private http: HttpClient,
+    private auth: AuthService) {
   }
 
   createUserInRealtimeDatabase(ui: any, data: any): Observable<any> {
@@ -34,5 +36,20 @@ export class userService {
     const userRef = `${environment.firebaseConfig.databaseURL}/users/${ui}.json`;
 
     return this.http.patch(userRef, data);
+  }
+
+  uploadFile(file: File, filePath: string): Observable<any> {
+    const storageBaseUrl = `https://firebasestorage.googleapis.com/v0/b/${environment.firebaseConfig.storageBucket}/o`;
+    const fullUrl = `${storageBaseUrl}/${encodeURIComponent(filePath)}`;
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.auth.token}`
+    });
+
+    const options = {
+      headers: headers
+    };
+
+    return this.http.post(fullUrl, file, options);
   }
 }

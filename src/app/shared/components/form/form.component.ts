@@ -1,5 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import {environment} from "../../../../environments/environment";
+import {userService} from "../../services/user.service";
 
 @Component({
   selector: 'app-form',
@@ -14,8 +16,13 @@ export class FormComponent implements OnInit {
   @Input() disabled: boolean = false;
   @Input() user: any | null;
   @Output() onClicked = new EventEmitter<void>();
-
+  userId: string | null = '';
+  selectedFile: string | null = null;
+  photoUser: string | null = null;
   form!: FormGroup;
+
+  constructor(private userService: userService) {
+  }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -39,9 +46,31 @@ export class FormComponent implements OnInit {
         textarea: new FormControl(this.user ? this.user.textarea : '', null)
       } : {})
     })
+    this.userId = localStorage.getItem('user-id');
   }
 
   onSubmitClick () {
-    this.onClicked.emit(this.form.value);
+    if (this.photoUser) {
+      const formData = {...this.form.value, photoUser: this.photoUser}
+      this.onClicked.emit(formData);
+    } else {
+      this.onClicked.emit(this.form.value);
+    }
+  }
+
+  onFileSelected(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        this.selectedFile = e.target?.result as string;
+
+        const filePath = `users/${this.userId}/` + file.name;
+        this.userService.uploadFile(file, filePath).subscribe(() => {
+          this.photoUser = `https://firebasestorage.googleapis.com/v0/b/${environment.firebaseConfig.storageBucket}/o/${encodeURIComponent(filePath)}?alt=media`;
+        });
+      };
+      reader.readAsDataURL(file);
+    }
   }
 }

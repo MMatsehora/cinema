@@ -12,6 +12,7 @@ import {Countries} from "../../shared/Model/countries";
 })
 export class ViewComponent implements OnInit {
   title: string = 'Trailer';
+  titleSecond: string = 'Comments';
   id !: string;
   movie !: any;
   movieUrl: string = '';

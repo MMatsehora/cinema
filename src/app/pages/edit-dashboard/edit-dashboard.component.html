@@ -1,6 +1,11 @@
 <div class="edit-profile">
   <app-title [level]="'h1'" [elemClass]="'title_h1'" [text]="title"></app-title>
-  <ng-container *ngIf="(user$ | async) as user">
-    <app-form [isEditProfile]="true" [textBtn]="textBtn" [user]="user" (onClicked)="editProfile($event)"></app-form>
+  <ng-container *ngIf="user$ | async as user">
+    <app-form
+      [isEditProfile]="true"
+      [textBtn]="textBtn"
+      [user]="user"
+      (onClicked)="editProfile($event)"
+    ></app-form>
   </ng-container>
 </div>

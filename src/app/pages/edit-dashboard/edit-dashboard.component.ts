@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {NotifierService} from "angular-notifier";
-import { userService } from "../../shared/services/user.service";
+import {userService} from "../../shared/services/user.service";
 import {Observable} from "rxjs";
 import firebase from "firebase/compat";
 import User = firebase.User;
@@ -32,7 +32,7 @@ export class EditDashboardComponent implements OnInit {
     this.userService.updateUser(this.userId, data).subscribe(
     () => {
       this.router.navigate(['/dashboard']);
-      this.notifier.notify('success', 'Данные успешно обновновились.');
+      this.notifier.notify('success', 'Данные успешно обновились.');
     })
   }
 }
