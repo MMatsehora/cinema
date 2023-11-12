@@ -25,12 +25,14 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.initializeForm();
+    this.userId = localStorage.getItem('user-id');
+  }
+
+  initializeForm(): void {
     this.form = new FormGroup({
       ...(this.isSignIn || this.isSignUp ? {
-        email: new FormControl('', [
-          Validators.required,
-          Validators.email
-        ]),
+        email: new FormControl('', [Validators.required, Validators.email]),
         password: new FormControl('', [
           Validators.required,
           Validators.minLength(6),
@@ -46,7 +48,6 @@ export class FormComponent implements OnInit {
         textarea: new FormControl(this.user ? this.user.textarea : '', null)
       } : {})
     })
-    this.userId = localStorage.getItem('user-id');
   }
 
   onSubmitClick () {
