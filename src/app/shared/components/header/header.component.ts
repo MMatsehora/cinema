@@ -56,10 +56,10 @@ export class HeaderComponent {
   }
 
   goToSignUpPage() {
-    this.router.navigate(['/sign-up'])
+    this.router.navigate(['/auth/sign-up'])
   }
 
   goToLogInPage() {
-    this.router.navigate(['/auth'])
+    this.router.navigate(['/auth/login'])
   }
 }

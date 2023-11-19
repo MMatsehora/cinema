@@ -13,6 +13,7 @@ import { HomeLayoutComponent } from './templates/home-layout/home-layout.compone
 import { GeneralLayoutComponent } from './templates/general-layout/general-layout.component';
 import { environment } from "../environments/environment";
 import { AuthInterceptor } from "./shared/interceptors/auth.interceptor";
+import {StoreModule} from "@ngrx/store";
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -33,6 +34,7 @@ const INTERCEPTOR_PROVIDER: Provider = {
     AngularFireStorageModule,
     HttpClientModule,
     AppRoutingModule,
+    StoreModule.forRoot({}),
     NotifierModule.withConfig({
       position: {
         horizontal: {

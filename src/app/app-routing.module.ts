@@ -16,8 +16,7 @@ const routes: Routes = [
       { path: 'about', loadChildren: () => import('./pages/about/about.module').then(m => m.AboutModule) },
       { path: 'view/:id', loadChildren: () => import('./pages/view/view.module').then(m => m.ViewModule) },
       { path: 'dashboard', loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule) },
-      { path: 'sign-up', loadChildren: () => import('./pages/sign-up/sign-up.module').then(m => m.SignUpModule)},
-      { path: 'auth', loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule)},
+      { path: 'auth', loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule) },
       { path: 'edit-dashboard', loadChildren: () => import('./pages/edit-dashboard/edit-dashboard.module').then(m => m.EditDashboardModule) }
     ]
   },

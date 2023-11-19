@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../../shared/services/auth.service";
+import {AuthService} from "../../../../shared/services/auth.service";
 import {Router} from "@angular/router";
 import {NotifierService} from "angular-notifier";
+import {UserAuth} from "../../../../shared/Model/auth";
 
 @Component({
   selector: 'app-auth',
-  templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.scss']
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
-export class AuthComponent implements OnInit {
+export class LoginComponent implements OnInit {
   public title: string = `Authorization`;
   public textBtn: string = 'Log in';
 
@@ -21,8 +22,8 @@ export class AuthComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  userAuthorize(data: any): void {
-    this.auth.signIn(data.email, data.password).subscribe((response) => {
+  userAuthorize(data: UserAuth): void {
+    this.auth.signIn(data).subscribe((response) => {
       this.auth.setToken(response);
       this.router.navigate(['/dashboard']);
       this.notifier.notify('success', 'Вы вошли в учетную запись.');

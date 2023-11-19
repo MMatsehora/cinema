@@ -10,8 +10,6 @@ import {map} from "rxjs/operators";
 })
 
 export class AuthService {
-  authState: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
-
   constructor(
     private http: HttpClient
   ) { }
@@ -43,10 +41,10 @@ export class AuthService {
     );
   }
 
-  signIn(email: string, password: string): Observable<any> {
+  signIn(user: UserAuth): Observable<any> {
     return this.http.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.firebaseConfig.apiKey}`, {
-      email: email,
-      password: password,
+      email: user.email,
+      password: user.password,
       returnSecureToken: true
     }).pipe(
       catchError(error => {
@@ -59,7 +57,7 @@ export class AuthService {
   signUpAndSignIn(user: UserAuth): Observable<any> {
     return this.signUp(user).pipe(
       switchMap(signUpResponse => {
-        return this.signIn(user.email, user.password).pipe(
+        return this.signIn(user).pipe(
           map(signInResponse => {
             return {
               signUpResponse: signUpResponse,

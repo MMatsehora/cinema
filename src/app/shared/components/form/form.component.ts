@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import {environment} from "../../../../environments/environment";
 import {userService} from "../../services/user.service";
+import {UserAuth} from "../../Model/auth";
 
 @Component({
   selector: 'app-form',
@@ -15,7 +16,7 @@ export class FormComponent implements OnInit {
   @Input() isSignIn: boolean = false;
   @Input() disabled: boolean = false;
   @Input() user: any | null;
-  @Output() onClicked = new EventEmitter<void>();
+  @Output() onClicked = new EventEmitter<UserAuth>();
   userId: string | null = '';
   selectedFile: string | null = null;
   photoUser: string | null = null;
