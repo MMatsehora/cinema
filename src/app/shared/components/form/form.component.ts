@@ -2,7 +2,10 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import {environment} from "../../../../environments/environment";
 import {userService} from "../../services/user.service";
-import {UserAuth} from "../../Model/auth";
+import {Observable} from "rxjs";
+import {select, Store} from "@ngrx/store";
+import {isSubmittingSelector} from "../../../pages/auth/store/selectors";
+import {AppStateInterface} from "../../types/appState.interface";
 
 @Component({
   selector: 'app-form',
@@ -16,14 +19,17 @@ export class FormComponent implements OnInit {
   @Input() isSignIn: boolean = false;
   @Input() disabled: boolean = false;
   @Input() user: any | null;
-  @Output() onClicked = new EventEmitter<UserAuth>();
+  @Output() onClicked = new EventEmitter<any>();
   userId: string | null = '';
   selectedFile: string | null = null;
   photoUser: string | null = null;
   form!: FormGroup;
+  isSubmitting$: Observable<boolean> = this.store.pipe(select(isSubmittingSelector));
 
-  constructor(private userService: userService) {
-  }
+  constructor(
+    private userService: userService,
+    private store: Store<AppStateInterface>
+  ) {}
 
   ngOnInit(): void {
     this.initializeForm();

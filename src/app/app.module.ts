@@ -13,7 +13,9 @@ import { HomeLayoutComponent } from './templates/home-layout/home-layout.compone
 import { GeneralLayoutComponent } from './templates/general-layout/general-layout.component';
 import { environment } from "../environments/environment";
 import { AuthInterceptor } from "./shared/interceptors/auth.interceptor";
-import {StoreModule} from "@ngrx/store";
+import { StoreModule } from "@ngrx/store";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { EffectsModule } from '@ngrx/effects';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -35,6 +37,11 @@ const INTERCEPTOR_PROVIDER: Provider = {
     HttpClientModule,
     AppRoutingModule,
     StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
     NotifierModule.withConfig({
       position: {
         horizontal: {
@@ -48,7 +55,7 @@ const INTERCEPTOR_PROVIDER: Provider = {
         autoHide: 1500
       }
     }),
-    SharedModule
+    SharedModule,
   ],
   providers: [INTERCEPTOR_PROVIDER],
   bootstrap: [AppComponent]

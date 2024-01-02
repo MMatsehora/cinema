@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../../../../shared/services/auth.service";
-import {Router} from "@angular/router";
-import {NotifierService} from "angular-notifier";
-import {UserAuth} from "../../../../shared/Model/auth";
+import {Store} from "@ngrx/store";
+import {loginAction} from "../../store/actions/login.action";
+import {LoginRequestInterface} from "../../types/loginRequest.interface";
+import {AppStateInterface} from "../../../../shared/types/appState.interface";
 
 @Component({
   selector: 'app-auth',
@@ -14,22 +14,13 @@ export class LoginComponent implements OnInit {
   public textBtn: string = 'Log in';
 
   constructor(
-    private auth: AuthService,
-    private router: Router,
-    public notifier: NotifierService
+    private store: Store<AppStateInterface>
   ) { }
 
   ngOnInit(): void {
   }
 
-  userAuthorize(data: UserAuth): void {
-    this.auth.signIn(data).subscribe((response) => {
-      this.auth.setToken(response);
-      this.router.navigate(['/dashboard']);
-      this.notifier.notify('success', 'Вы вошли в учетную запись.');
-    }, (error) => {
-      const errorMessage = error.error.error.message;
-      this.notifier.notify('error', errorMessage);
-    })
+  userLogin(user: LoginRequestInterface): void {
+    this.store.dispatch(loginAction(user));
   }
 }

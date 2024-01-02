@@ -6,6 +6,14 @@ import { LoginComponent } from "./components/login/login.component";
 import {AuthGuard} from "../../shared/services/auth.guard";
 import {SharedModule} from "../../shared/shared.module";
 import { SignUpComponent } from "./components/sign-up/sign-up.component";
+import {StoreModule} from "@ngrx/store";
+import {reducers} from "./store/reducers";
+import {AuthServices} from "./services/auth.services";
+import {EffectsModule} from "@ngrx/effects";
+import {SignUpEffect} from "./store/effects/signUp.effect";
+import {NotificationEffect} from "./store/effects/notification.effect";
+import {LoginEffect} from "./store/effects/login.effects";
+import {GetCurrentUserEffect} from "./store/effects/getCurrentUser.effect";
 
 const routes: Routes = [
   {
@@ -18,7 +26,6 @@ const routes: Routes = [
   }
 ];
 
-
 @NgModule({
   declarations: [
     LoginComponent,
@@ -27,9 +34,12 @@ const routes: Routes = [
   imports: [
     SharedModule,
     FormModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    StoreModule.forFeature('auth', reducers),
+    EffectsModule.forFeature([SignUpEffect, LoginEffect, GetCurrentUserEffect, NotificationEffect])
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthServices]
 })
 
 export class AuthModule { }

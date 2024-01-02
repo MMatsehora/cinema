@@ -81,6 +81,6 @@
     type="submit"
     [elemClass]="'btn_form btn_primary btn_medium'"
     [textBtn]="textBtn"
-    [disabled]="form.invalid"
+    [disabled]="form.invalid || (isSubmitting$ | async) !== false"
   ></app-button>
 </form>

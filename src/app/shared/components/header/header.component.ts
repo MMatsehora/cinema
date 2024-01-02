@@ -1,7 +1,11 @@
-import {Component, HostListener} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {menuList} from "../../Model/menu-list";
 import {Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
+import {Observable} from "rxjs";
+import {select, Store} from "@ngrx/store";
+import {isLoggedInSelector} from "../../../pages/auth/store/selectors";
+import {AppStateInterface} from "../../types/appState.interface";
 
 @Component({
   selector: 'app-header',
@@ -11,11 +15,13 @@ import {AuthService} from "../../services/auth.service";
 export class HeaderComponent {
   public textBtnFirst: string = 'Sign up'
   public textBtnSecond: string = 'Log in'
+  isLoggedIn$: Observable<boolean | null> = this.store.pipe(select(isLoggedInSelector));
   isClassVisible: boolean = false;
 
   constructor(
     private router: Router,
-    public auth: AuthService) {
+    public auth: AuthService,
+    private store: Store<AppStateInterface>) {
   }
 
   @HostListener('document:click', ['$event'])

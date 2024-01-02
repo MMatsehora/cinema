@@ -3,7 +3,7 @@
     <app-logo [elemClass]="'header__logo'"></app-logo>
     <div class="header__menu">
       <app-menu [isClassVisible]="isClassVisible" [menuList]="menuList"></app-menu>
-      <div class="header__buttons" *ngIf="!auth.isAuthenticated()">
+      <div class="header__buttons"> <!-- *ngIf="!(isLoggedIn$ | async)" -->
         <app-button (onClicked)="goToSignUpPage()" [elemClass]="'btn_primary btn_small'" [textBtn]="textBtnFirst"></app-button>
         <app-button (onClicked)="goToLogInPage()" [elemClass]="'btn_secondary btn_small'" [textBtn]="textBtnSecond"></app-button>
       </div>
